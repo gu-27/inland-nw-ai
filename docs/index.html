@@ -379,54 +379,28 @@
 </head>
 <body>
 
-<!-- ── LOGO SVG DEFINITIONS ── -->
+<!-- ── LOGO SVG DEFINITION (reused) ── -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Circle icon mark -->
-  <symbol id="logo-icon" viewBox="0 0 100 100">
+  <symbol id="logo-icon" viewBox="0 0 80 80">
     <!-- outer ring -->
-    <circle cx="50" cy="50" r="46" fill="none" stroke="#2C8C8C" stroke-width="3.5"/>
-    <!-- left mountain peak (behind) -->
-    <polygon points="10,74 32,26 56,62" fill="#2C8C8C" opacity=".55"/>
-    <!-- right mountain peak (front/main) -->
-    <polygon points="26,74 52,14 78,74" fill="#2C8C8C"/>
-    <!-- compass needle pointing up (rust) -->
-    <polygon points="52,16 57,44 52,41 47,44" fill="#C85A17"/>
-    <!-- compass needle pointing down (muted) -->
-    <polygon points="52,60 57,44 52,47 47,44" fill="rgba(200,90,23,.35)"/>
-    <!-- compass center dot -->
-    <circle cx="52" cy="44" r="4.5" fill="#C85A17"/>
+    <circle cx="40" cy="40" r="37" fill="none" stroke="#2C8C8C" stroke-width="2.5"/>
+    <!-- mountain left -->
+    <polygon points="10,62 30,30 46,52" fill="#2C8C8C" opacity=".55"/>
+    <!-- mountain main (right) -->
+    <polygon points="26,62 50,18 72,62" fill="#2C8C8C"/>
+    <!-- compass needle up (rust) -->
+    <polygon points="50,12 54.5,36 50,33 45.5,36" fill="#C85A17"/>
+    <!-- compass needle down (muted rust) -->
+    <polygon points="50,56 54.5,36 50,39 45.5,36" fill="rgba(200,90,23,.3)"/>
+    <!-- base ground line -->
+    <line x1="10" y1="62" x2="72" y2="62" stroke="#2C8C8C" stroke-width="2" stroke-linecap="round"/>
   </symbol>
 </svg>
-
-<!-- ── BRANDMARK STYLES ── -->
-<style>
-  .brandmark { display:inline-flex; flex-direction:column; align-items:center; gap:.2rem; }
-  .brandmark-ai {
-    font-size:7rem; font-weight:900; color:#2C8C8C; line-height:1;
-    letter-spacing:-.04em; position:relative; display:inline-block;
-    font-family:'Inter',sans-serif;
-  }
-  .brandmark-dot {
-    position:absolute; width:1rem; height:1rem; border-radius:50%;
-    background:#C85A17; top:28%; left:7.5%;
-  }
-  .brandmark-name {
-    font-size:.85rem; font-weight:800; letter-spacing:.18em;
-    color:#2C8C8C; text-transform:uppercase; text-align:center;
-  }
-  /* Larger variant for hero -->
-  .brandmark.lg .brandmark-ai { font-size:10rem; }
-  .brandmark.lg .brandmark-dot { width:1.4rem; height:1.4rem; top:28%; left:7.5%; }
-  .brandmark.lg .brandmark-name { font-size:1.1rem; letter-spacing:.2em; }
-  /* Dark background variant */
-  .brandmark.on-dark .brandmark-ai { color:rgba(255,255,255,.9); }
-  .brandmark.on-dark .brandmark-name { color:rgba(255,255,255,.6); }
-</style>
 
 <!-- ── NAV ── -->
 <nav>
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 100 100" width="44" height="44"><use href="#logo-icon"/></svg>
+    <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
     <div class="nav-logo-text">
       Inland NW AI
       <span>Powered by CuriosITy. Empower Your Team.</span>
@@ -470,14 +444,16 @@
     </div>
 
     <div class="hero-visual">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:2rem;">
-        <!-- Primary Brandmark -->
-        <div class="brandmark lg">
-          <div class="brandmark-ai">AI<div class="brandmark-dot"></div></div>
-          <div class="brandmark-name">Inland NW AI</div>
+      <div class="hero-logo-ring">
+        <div class="ring-outer">
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot"></div>
         </div>
-        <!-- Icon mark below -->
-        <svg viewBox="0 0 100 100" width="90" height="90" style="opacity:.85;"><use href="#logo-icon"/></svg>
+        <div class="ring-inner"></div>
+        <div class="logo-center">
+          <svg viewBox="0 0 80 80" width="160" height="160"><use href="#logo-icon"/></svg>
+        </div>
       </div>
     </div>
   </div>
@@ -649,12 +625,10 @@
       </div>
 
       <div class="about-visual">
-        <div style="margin-bottom:1.5rem;">
-          <div class="brandmark on-dark">
-            <div class="brandmark-ai" style="font-size:5rem;">AI<div class="brandmark-dot"></div></div>
-            <div class="brandmark-name">Inland NW AI</div>
-          </div>
+        <div class="about-logo-wrap">
+          <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
         </div>
+        <h3>Inland NW AI</h3>
         <p class="tagline">Powered by CuriosITy. Empower Your Team.</p>
         <div class="about-pillars">
           <div class="about-pillar">
@@ -731,7 +705,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-logo">
-      <svg viewBox="0 0 100 100" width="42" height="42"><use href="#logo-icon"/></svg>
+      <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
       <div class="footer-logo-text">
         Inland NW AI
         <span>Powered by CuriosITy. Empower Your Team.</span>
