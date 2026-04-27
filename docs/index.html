@@ -436,7 +436,6 @@
         </a>
         <a href="#services" class="btn-secondary">Explore Services</a>
       </div>
-      <p style="font-size:.8rem;color:var(--teal);font-weight:600;margin-top:1rem;">Plans start as low as $399 &nbsp; &#8594; &nbsp; <a href="#services" style="color:var(--teal);text-decoration:underline;text-underline-offset:3px;">See all engagement options</a></p>
       <div class="hero-values">
         <div class="hero-value">People-Centered</div>
         <div class="hero-value">Practical</div>
@@ -468,9 +467,14 @@
 <!-- ── SERVICES ── -->
 <section class="services-bg" id="services">
   <div class="section-inner">
-    <p class="section-sub" style="margin-top:0">
-      From your first AI question to full team adoption, we have an engagement that fits where you are. Plans start as low as $399.
-    </p>
+    <!-- Pricing callout -->
+    <div style="background:var(--rust);border-radius:14px;padding:1.5rem 2rem;margin-bottom:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:white;line-height:1.1;letter-spacing:-.02em;">Training sessions start at <span style="color:#ffe0cc;">$299</span></div>
+        <div style="font-size:.875rem;color:rgba(255,255,255,.75);margin-top:.4rem;">Customized to your team, your industry, and your goals. Consulting and integration quoted based on scope.</div>
+      </div>
+      <a href="#contact" class="btn-white" style="flex-shrink:0;color:var(--rust);">Book a Discovery Call</a>
+    </div>
 
     <div class="services-grid">
 
@@ -481,18 +485,17 @@
         </div>
         <div class="service-tag">Phase 1</div>
         <h3>Education</h3>
-        <p style="margin-bottom:1rem">Structured learning sessions built around your team, your industry, and your goals. Each module is fully customizable and delivered in a format that fits your schedule.</p>
-        <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;">Available Modules</div>
+        <p>Structured learning sessions built around your team, your industry, and your goals. Each module pairs AI fundamentals with your specific use case so the learning is immediately applicable.</p>
+        <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-top:1.1rem;margin-bottom:.6rem;">Available Modules</div>
         <ul class="service-list">
-          <li>AI for Analysis — fundamentals plus your data analysis challenges</li>
-          <li>AI for Data Analytics — fundamentals plus your datasets and insights needs</li>
-          <li>AI for Automation — fundamentals plus your repetitive workflows</li>
-          <li>AI for Operations and Communication — fundamentals plus your internal processes</li>
-          <li>AI for Customer Experience — fundamentals plus your customer interaction challenges</li>
-          <li>AI for Content and Marketing — fundamentals plus your marketing and messaging gaps</li>
-          <li>AI for Compliance and Risk — fundamentals plus your data privacy and liability concerns</li>
+          <li>AI for Analysis</li>
+          <li>AI for Data Analytics</li>
+          <li>AI for Automation</li>
+          <li>AI for Operations and Communication</li>
+          <li>AI for Customer Experience</li>
+          <li>AI for Content and Marketing</li>
+          <li>AI for Compliance and Risk</li>
         </ul>
-        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--rust);font-weight:700;">Starting at $399</div>
       </div>
 
       <!-- Phase 2: Consulting -->
@@ -502,16 +505,8 @@
         </div>
         <div class="service-tag">Phase 2</div>
         <h3>Consulting</h3>
-        <p style="margin-bottom:1rem">Move from curiosity to a clear plan. We help you identify where AI creates the most value for your organization and build a roadmap grounded in what is actually achievable.</p>
-        <ul class="service-list">
-          <li>AI readiness assessment</li>
-          <li>Use case discovery and prioritization</li>
-          <li>Tool and vendor evaluation</li>
-          <li>AI governance and responsible use framework</li>
-          <li>Adoption roadmap with phased milestones</li>
-          <li>Stakeholder alignment and change planning</li>
-        </ul>
-        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--rust);font-weight:700;">Starting at $900</div>
+        <p>Move from curiosity to a clear plan. We help you identify where AI creates the most value for your organization and build a roadmap grounded in what is actually achievable for your team and budget.</p>
+        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
       </div>
 
       <!-- Phase 3: Integration -->
@@ -521,28 +516,20 @@
         </div>
         <div class="service-tag">Phase 3</div>
         <h3>Integration</h3>
-        <p style="margin-bottom:1rem">Ready to build? We design, deploy, and support AI solutions that fit your existing systems and workflows. We stay involved until your team is fully capable and confident.</p>
-        <ul class="service-list">
-          <li>Solution design and implementation</li>
-          <li>Workflow automation and process optimization</li>
-          <li>Integration with existing tools and platforms</li>
-          <li>Team training and capability transfer</li>
-          <li>Ongoing support and iteration</li>
-          <li>Performance measurement and reporting</li>
-        </ul>
-        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--rust);font-weight:700;">Custom Quoted</div>
+        <p>For organizations ready to embed AI into how they operate. We work alongside your team to implement your AI strategy, build the right workflows, and ensure every person has the capability to use them effectively.</p>
+        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
       </div>
 
     </div>
 
-    <!-- Custom Engagement -->
-    <div style="margin-top:1.25rem;background:var(--teal);border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+    <!-- Corporate Strategy Banner -->
+    <div style="margin-top:1.25rem;background:var(--dark);border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
       <div>
-        <div style="font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.5rem;">Custom Engagement</div>
-        <h3 style="color:white;font-size:1.15rem;font-weight:800;margin-bottom:.4rem;">Need something more comprehensive?</h3>
-        <p style="color:rgba(255,255,255,.7);font-size:.875rem;line-height:1.7;max-width:560px;">For organizations that want a complete, structured AI program spanning all three phases. We design the entire engagement around your team, your timeline, and your goals.</p>
+        <div style="font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:.5rem;">Corporate AI Strategy</div>
+        <h3 style="color:white;font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Already have an AI strategy? We help you execute it.</h3>
+        <p style="color:rgba(255,255,255,.6);font-size:.875rem;line-height:1.7;max-width:580px;">Many organizations have invested in developing an AI strategy but face real challenges putting it into practice. We partner with corporations to close that gap — training teams, aligning workflows, and building the internal capability needed to make the strategy real.</p>
       </div>
-      <a href="#contact" class="btn-white" style="flex-shrink:0;">Let's Talk</a>
+      <a href="#contact" class="btn-white" style="flex-shrink:0;color:var(--dark);">Let's Talk</a>
     </div>
   </div>
 </section>
