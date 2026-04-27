@@ -203,6 +203,10 @@
       padding: .25rem .65rem; border-radius: 999px; margin-bottom: .75rem;
     }
     .service-card.accent .service-tag { color: var(--rust); background: rgba(200,90,23,.1); }
+    .service-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; margin-top: .25rem; }
+    .service-list li { font-size: .82rem; color: var(--muted); display: flex; align-items: flex-start; gap: .55rem; line-height: 1.5; }
+    .service-list li::before { content: '✓'; color: var(--teal); flex-shrink: 0; font-weight: 700; }
+    .service-card.accent .service-list li::before { color: var(--rust); }
 
     /* bottom 2 cards span */
     .service-card.wide { grid-column: span 1; }
@@ -399,7 +403,7 @@
     <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
     <div class="nav-logo-text">
       Inland NW AI
-      <span>Powered by Curiosity. Empower Your Team.</span>
+      <span>Powered by CuriosITy. Empower Your Team.</span>
     </div>
   </a>
   <ul class="nav-links">
@@ -423,7 +427,7 @@
       <h1>Build <em>AI Capability</em><br>With Confidence<span class="dot">.</span></h1>
       <p>
         We help organizations in Spokane, Coeur d'Alene, and across the Inland Northwest build
-        the knowledge, confidence, and systems to turn AI curiosity into real-world impact.
+        the knowledge, confidence, and systems to turn AI curiosity into real world impact.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">
@@ -432,6 +436,7 @@
         </a>
         <a href="#services" class="btn-secondary">Explore Services</a>
       </div>
+      <p style="font-size:.8rem;color:var(--teal);font-weight:600;margin-top:1rem;">Plans start as low as $399 &nbsp; &#8594; &nbsp; <a href="#services" style="color:var(--teal);text-decoration:underline;text-underline-offset:3px;">See all engagement options</a></p>
       <div class="hero-values">
         <div class="hero-value">People-Centered</div>
         <div class="hero-value">Practical</div>
@@ -457,71 +462,87 @@
 
 <!-- ── VALUES BAR ── -->
 <div class="values-bar">
-  Curiosity-Driven <span>·</span> People-Centered <span>·</span> Thoughtful AI
+  CuriosITy Driven <span>·</span> People Centered <span>·</span> Thoughtful AI
 </div>
 
 <!-- ── SERVICES ── -->
 <section class="services-bg" id="services">
   <div class="section-inner">
     <p class="section-sub" style="margin-top:0">
-      From your first AI question to full team adoption — we have an engagement that fits where you are.
+      From your first AI question to full team adoption, we have an engagement that fits where you are. Plans start as low as $399.
     </p>
 
     <div class="services-grid">
 
+      <!-- Phase 1: Education -->
       <div class="service-card" id="workshops">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         </div>
-        <div class="service-tag">Workshops</div>
-        <h3>AI Training Workshops</h3>
-        <p>Practical, hands-on training that builds confidence and skills across your team. Customized for your industry, your tools, and your goals — not generic AI hype.</p>
+        <div class="service-tag">Phase 1</div>
+        <h3>Education</h3>
+        <p style="margin-bottom:1rem">Structured learning sessions built around your team, your industry, and your goals. Each module is fully customizable and delivered in a format that fits your schedule.</p>
+        <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;">Available Modules</div>
+        <ul class="service-list">
+          <li>AI Fundamentals and Literacy</li>
+          <li>Productivity with AI Tools (ChatGPT, Copilot, and more)</li>
+          <li>Prompt Engineering and Best Practices</li>
+          <li>AI for Leadership and Strategic Decision Making</li>
+          <li>Responsible AI and Ethical Use</li>
+          <li>Workflow Automation Basics</li>
+          <li>Industry Specific AI Applications</li>
+        </ul>
+        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--rust);font-weight:700;">Starting at $399</div>
       </div>
 
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="service-tag">Enablement</div>
-        <h3>Team Enablement</h3>
-        <p>Equip your team with the tools, knowledge, and playbooks to use AI every day. We build durable habits, not one-time demos.</p>
-      </div>
-
+      <!-- Phase 2: Consulting -->
       <div class="service-card">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
         </div>
-        <div class="service-tag">Strategy</div>
-        <h3>AI Strategy &amp; Use Case Discovery</h3>
-        <p>Identify high-value AI opportunities in your workflows and create a roadmap that delivers real results. No filler, no fluff.</p>
+        <div class="service-tag">Phase 2</div>
+        <h3>Consulting</h3>
+        <p style="margin-bottom:1rem">Move from curiosity to a clear plan. We help you identify where AI creates the most value for your organization and build a roadmap grounded in what is actually achievable.</p>
+        <ul class="service-list">
+          <li>AI readiness assessment</li>
+          <li>Use case discovery and prioritization</li>
+          <li>Tool and vendor evaluation</li>
+          <li>AI governance and responsible use framework</li>
+          <li>Adoption roadmap with phased milestones</li>
+          <li>Stakeholder alignment and change planning</li>
+        </ul>
+        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--rust);font-weight:700;">Starting at $900</div>
       </div>
 
+      <!-- Phase 3: Integration -->
       <div class="service-card accent">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <div class="service-tag">Automation</div>
-        <h3>Workflow Automation Guidance</h3>
-        <p>Streamline processes and unlock productivity with practical AI automation. We focus on changes that stick and save real time.</p>
+        <div class="service-tag">Phase 3</div>
+        <h3>Integration</h3>
+        <p style="margin-bottom:1rem">Ready to build? We design, deploy, and support AI solutions that fit your existing systems and workflows. We stay involved until your team is fully capable and confident.</p>
+        <ul class="service-list">
+          <li>Solution design and implementation</li>
+          <li>Workflow automation and process optimization</li>
+          <li>Integration with existing tools and platforms</li>
+          <li>Team training and capability transfer</li>
+          <li>Ongoing support and iteration</li>
+          <li>Performance measurement and reporting</li>
+        </ul>
+        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--rust);font-weight:700;">Custom Quoted</div>
       </div>
 
-      <div class="service-card accent">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="service-tag">Governance</div>
-        <h3>Responsible AI Consulting</h3>
-        <p>Adopt AI ethically and safely with governance frameworks, policies, and best practices built for your organization's size and risk profile.</p>
-      </div>
+    </div>
 
-      <!-- CTA card -->
-      <div class="service-card" style="background: var(--teal); border-color: var(--teal); display:flex; flex-direction:column; justify-content:center; align-items:flex-start;">
-        <div style="font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.75rem;">Custom &amp; Enterprise</div>
-        <h3 style="color:white;font-size:1.05rem;margin-bottom:.75rem;">Need something<br>more comprehensive?</h3>
-        <p style="color:rgba(255,255,255,.7);font-size:.855rem;line-height:1.7;margin-bottom:1.5rem;">Multi-session, multi-stakeholder engagements designed entirely around your organization.</p>
-        <a href="#contact" class="btn-white" style="font-size:.82rem;padding:.7rem 1.4rem;">Let's Talk →</a>
+    <!-- Custom Engagement -->
+    <div style="margin-top:1.25rem;background:var(--teal);border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.5rem;">Custom Engagement</div>
+        <h3 style="color:white;font-size:1.15rem;font-weight:800;margin-bottom:.4rem;">Need something more comprehensive?</h3>
+        <p style="color:rgba(255,255,255,.7);font-size:.875rem;line-height:1.7;max-width:560px;">For organizations that want a complete, structured AI program spanning all three phases. We design the entire engagement around your team, your timeline, and your goals.</p>
       </div>
-
+      <a href="#contact" class="btn-white" style="flex-shrink:0;">Let's Talk</a>
     </div>
   </div>
 </section>
@@ -531,8 +552,8 @@
   <div class="ai-strip-bg">AI</div>
   <div class="ai-strip-inner">
     <div>
-      <h2>Curiosity leads.<br>AI empowers.</h2>
-      <p>The organizations that thrive with AI aren't the ones who move fastest — they're the ones who move with intention. We help you do exactly that.</p>
+      <h2>CuriosITy leads.<br>AI empowers.</h2>
+      <p>The organizations that thrive with AI are the ones who move with intention. They invest in their people, align technology to their goals, and build capability that lasts. We help you do exactly that.</p>
     </div>
     <a href="#contact" class="btn-white">Start the Conversation</a>
   </div>
@@ -542,24 +563,24 @@
 <section id="approach">
   <div class="section-inner">
     <div class="section-eyebrow">Our Approach</div>
-    <h2 class="section-title">Powered by Curiosity</h2>
-    <p class="section-sub">We don't start with technology — we start with your goals. Every engagement begins with deep listening and ends with your team confident and capable.</p>
+    <h2 class="section-title">Powered by CuriosITy</h2>
+    <p class="section-sub">We lead with your goals, then align the right technology to help you reach them. Every engagement begins with deep listening and ends with your team confident and capable.</p>
 
     <div class="approach-grid">
       <div class="approach-step">
         <div class="approach-num">1</div>
         <h3>Explore</h3>
-        <p>We start by understanding your organization, your people, and where AI fits — or doesn't. No assumptions, no off-the-shelf answers.</p>
+        <p>We start by understanding your organization, your people, and where AI can create the most value. No assumptions. No generic answers.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">2</div>
         <h3>Plan</h3>
-        <p>Together we build a roadmap that's honest about what's possible, prioritizes what matters most, and fits your timeline and budget.</p>
+        <p>Together we build a roadmap that is honest about what is possible, prioritizes what matters most, and fits your timeline and budget.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">3</div>
-        <h3>Build &amp; Support</h3>
-        <p>We implement, train, and stay until your team is confident. Success means your outcomes — not our deliverables.</p>
+        <h3>Build and Support</h3>
+        <p>We implement, train, and stay engaged until your team is confident. We measure success by your outcomes, not our hours billed.</p>
       </div>
     </div>
   </div>
@@ -571,21 +592,21 @@
     <div class="about-grid">
       <div>
         <div class="section-eyebrow">About</div>
-        <h2 class="section-title">Grounded in Education.<br>Built on Curiosity.</h2>
+        <h2 class="section-title">Grounded in Education.<br>Built on CuriosITy.</h2>
         <div class="about-body">
           <p>
-            Inland NW AI was founded on a simple belief: that AI adoption done right starts with
-            genuine curiosity — not hype, not fear, and not pressure to keep up with the latest headline.
+            Inland NW AI was founded on a simple belief: AI adoption done right starts with
+            genuine curiosity. Not hype. Not fear. Not pressure to keep up with the latest headline.
           </p>
           <p>
-            With a background in education and technology consulting, we've spent years helping
-            organizations understand and adopt emerging technologies in ways that actually stick.
+            With a background in education and technology consulting, we have spent years helping
+            people understand and adopt emerging technologies in ways that actually stick.
             Our work is practical, personalized, and grounded in how real teams learn and change.
           </p>
           <p>
             We serve businesses, nonprofits, higher education institutions, and leadership teams
-            across Spokane, Coeur d'Alene, and the broader Inland Northwest — who want to move
-            thoughtfully, not just fast.
+            across Spokane, Coeur d'Alene, and the broader Inland Northwest who want to move
+            thoughtfully and build something that lasts.
           </p>
         </div>
         <div class="about-stats">
@@ -609,7 +630,7 @@
           <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
         </div>
         <h3>Inland NW AI</h3>
-        <p class="tagline">Powered by Curiosity. Empower Your Team.</p>
+        <p class="tagline">Powered by CuriosITy. Empower Your Team.</p>
         <div class="about-pillars">
           <div class="about-pillar">
             <div class="about-pillar-icon">
@@ -684,7 +705,7 @@
 
 <!-- ── FOOTER ── -->
 <div class="footer-values">
-  Curiosity-Driven <span>·</span> People-Centered <span>·</span> Thoughtful AI <span>·</span> Growing Together
+  CuriosITy Driven <span>·</span> People Centered <span>·</span> Thoughtful AI <span>·</span> Growing Together
 </div>
 <footer>
   <div class="footer-top">
@@ -692,7 +713,7 @@
       <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
       <div class="footer-logo-text">
         Inland NW AI
-        <span>Powered by Curiosity. Empower Your Team.</span>
+        <span>Powered by CuriosITy. Empower Your Team.</span>
       </div>
     </div>
     <div class="footer-links">
