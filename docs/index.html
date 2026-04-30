@@ -175,9 +175,23 @@
     }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 1.25rem;
+      row-gap: 0;
     }
+    .service-card {
+      display: grid;
+      grid-row: span 5;
+      grid-template-rows: subgrid;
+      padding: 2rem 1.75rem;
+    }
+    /* spacing between subgrid rows inside each card */
+    .service-card .service-tag    { padding-bottom: .75rem; }
+    .service-card h3              { padding-bottom: .85rem; font-size: 1rem; font-weight: 800; color: var(--dark); line-height: 1.3; }
+    .service-card > p             { padding-bottom: 0; }
+    .service-card .card-list-label { padding-top: 1.1rem; padding-bottom: .6rem; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--teal); }
+    .service-card.accent .card-list-label { color: var(--rust); }
+    .service-card ul              { padding-top: 0; }
     .service-card {
       background: var(--white); border: 1px solid var(--border); border-radius: 16px;
       padding: 2rem 1.75rem; position: relative; overflow: hidden;
@@ -186,21 +200,15 @@
     .service-card:hover { box-shadow: 0 10px 40px rgba(44,140,140,.12); transform: translateY(-3px); }
     .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); }
     .service-card.accent::before { background: var(--rust); }
-    .service-icon {
-      width: 46px; height: 46px; background: rgba(44,140,140,.1); border-radius: 12px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
-    }
-    .service-card.accent .service-icon { background: rgba(200,90,23,.1); }
-    .service-icon svg { width: 22px; height: 22px; color: var(--teal); }
-    .service-card.accent .service-icon svg { color: var(--rust); }
-    .service-card h3 { font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: .85rem; line-height: 1.3; }
-    .service-card p { font-size: .855rem; color: var(--muted); line-height: 1.75; }
+    .service-icon { display: none; }
     .service-tag {
-      display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--teal); background: rgba(44,140,140,.1);
-      padding: .25rem .65rem; border-radius: 999px; margin-bottom: .75rem;
+      font-size: 1.35rem; font-weight: 900; letter-spacing: -.02em;
+      color: var(--teal); display: block; text-align: center;
+      border-bottom: 2.5px solid rgba(44,140,140,.2); padding-bottom: .5rem;
     }
-    .service-card.accent .service-tag { color: var(--rust); background: rgba(200,90,23,.1); }
+    .service-card.accent .service-tag { color: var(--rust); border-color: rgba(200,90,23,.25); }
+    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--muted); line-height: 1.3; }
+    .service-card > p { font-size: .875rem; color: var(--muted); line-height: 1.75; }
     .service-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; margin-top: .25rem; }
     .service-list li { font-size: .82rem; color: var(--muted); display: flex; align-items: flex-start; gap: .55rem; line-height: 1.5; }
     .service-list li::before { content: '✓'; color: var(--teal); flex-shrink: 0; font-weight: 700; }
@@ -364,8 +372,8 @@
     .footer-values span { color: rgba(255,255,255,.3); margin: 0 .65rem; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: 1fr; }
+    @media (max-width: 1100px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .services-grid { grid-template-columns: 1fr; }
@@ -461,94 +469,99 @@
   </div>
 </section>
 
-<!-- ── VALUES BAR ── -->
-<div class="values-bar">
-  CuriosITy Driven <span>·</span> People Centered <span>·</span> Thoughtful AI
-</div>
-
-<!-- ── SOCIAL PROOF BAR ── -->
-<div style="background:var(--white);border-bottom:1px solid var(--border);padding:1rem 2.5rem;text-align:center;">
-  <p style="font-size:.82rem;color:var(--muted);font-weight:500;">Proudly serving businesses, nonprofits, and teams across <strong style="color:var(--dark);font-weight:700;">Spokane, Coeur d'Alene, and the Inland Northwest</strong></p>
+<!-- ── VALUES + REGION BAR ── -->
+<div class="values-bar" style="padding:1rem 2.5rem;">
+  CuriosITy Driven <span>·</span> People Centered <span>·</span> Thoughtful AI <span>·</span> <span style="color:rgba(255,255,255,.75);font-weight:500;text-transform:none;letter-spacing:.04em;">Proudly serving businesses &amp; nonprofits across <strong style="color:white;">Spokane, Coeur d'Alene &amp; the Inland Northwest</strong></span>
 </div>
 
 <!-- ── SERVICES ── -->
 <section class="services-bg" id="services">
   <div class="section-inner">
     <div class="section-eyebrow">How We Help</div>
-    <h2 class="section-title">Simple steps. Real results.</h2>
-    <!-- Engagement intro -->
-    <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.5rem 2rem;margin-bottom:2.5rem;text-align:center;">
-      <p style="font-size:1rem;color:var(--muted);line-height:1.75;">Not sure where to start? That's completely normal. <a href="#contact" style="color:var(--teal);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Book a free 30-minute call</a> and we'll point you in the right direction — no pressure, no commitment.</p>
-    </div>
-
-    <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.75rem;font-style:italic;">Pick where you are today — or we'll help you figure that out together.</p>
+    <h2 class="section-title">Start anywhere. Go as far as you want.</h2>
+    <p class="section-sub">You don't have to follow a rigid path. Some clients just want to explore. Others are ready to build. Most start somewhere in between — and that's completely fine.</p>
 
     <div class="services-grid">
 
-      <!-- Step 1: Explore -->
+      <!-- Explore -->
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-        <div class="service-tag">Step 1 — Explore</div>
+        <div class="service-icon">🧭</div>
+        <div class="service-tag">Explore</div>
         <h3>AI Discovery Session</h3>
-        <p>Not sure where AI fits in your business? We start with a free, no-pressure conversation to learn what you do, where your team spends time, and where AI could genuinely help. No jargon, no pitch — just an honest look at your situation.</p>
-        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--teal);font-weight:700;">Free — 30 Minutes</div>
-      </div>
-
-      <!-- Step 2: Assess -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
-        </div>
-        <div class="service-tag">Step 2 — Assess</div>
-        <h3>AI Assessment &amp; Strategy</h3>
-        <p>A deeper look at where AI can create real value for your organization. We assess your workflows, tools, and team readiness, then deliver a clear, actionable roadmap — what to pursue, what to skip, and how to get started with confidence.</p>
-        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
-      </div>
-
-      <!-- Step 3: Learn -->
-      <div class="service-card" id="workshops">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <div class="service-tag">Step 3 — Learn</div>
-        <h3>AI Training for Your Team</h3>
-        <p>Hands-on workshops at your location, built around what your team actually does. We skip the jargon and focus on real tools your people can use starting the next day. Sessions start at $299.</p>
-        <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-top:1.1rem;margin-bottom:.6rem;">Available Modules</div>
+        <p>A free, no-pressure conversation to learn where AI could genuinely help your business. No jargon, no pitch.</p>
+        <div class="card-list-label">What We Cover</div>
         <ul class="service-list">
-          <li>What the heck is AI?</li>
-          <li>AI for Analysis</li>
-          <li>AI for Data Analytics</li>
-          <li>AI for Automation</li>
-          <li>AI for Operations and Communication</li>
-          <li>AI for Customer Experience</li>
-          <li>AI for Content and Marketing</li>
-          <li>AI for Compliance and Risk</li>
+          <li>What AI actually is (and isn't)</li>
+          <li>Where your team spends the most time</li>
+          <li>Quick-win opportunities</li>
+          <li>Honest take on fit and readiness</li>
+          <li>What a next step could look like</li>
+          <li>No commitment required</li>
         </ul>
       </div>
 
-      <!-- Step 4: Build -->
+      <!-- Learn -->
+      <div class="service-card" id="workshops">
+        <div class="service-icon">📖</div>
+        <div class="service-tag">Learn</div>
+        <h3>AI Training for Your Team</h3>
+        <p>Hands-on workshops at your location, built around what your team actually does. Real tools, no jargon. Sessions start at $299.</p>
+        <div class="card-list-label">Available Modules</div>
+        <ul class="service-list">
+          <li>What the heck is AI?</li>
+          <li>Growing a Curiosity Toward AI</li>
+          <li>AI for Analysis &amp; Reporting</li>
+          <li>AI for Automation</li>
+          <li>AI for Operations &amp; Communication</li>
+          <li>AI for Customer Experience</li>
+          <li>AI for Content &amp; Marketing</li>
+        </ul>
+      </div>
+
+      <!-- Strategize -->
+      <div class="service-card">
+        <div class="service-icon">🗺️</div>
+        <div class="service-tag">Strategize</div>
+        <h3>AI Evaluation &amp; Strategy</h3>
+        <p>A deeper look at where AI creates real value for your organization — and a clear roadmap for getting there.</p>
+        <div class="card-list-label">We Can Help You With</div>
+        <ul class="service-list">
+          <li>AI Opportunity Assessment</li>
+          <li>Workflow &amp; Process Analysis</li>
+          <li>Build vs. Buy Evaluation</li>
+          <li>AI Roadmap &amp; Prioritization</li>
+          <li>Vendor &amp; Tool Selection</li>
+          <li>Risk &amp; Compliance Review</li>
+        </ul>
+      </div>
+
+      <!-- Build -->
       <div class="service-card accent">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <div class="service-tag">Step 4 — Build</div>
+        <div class="service-icon">⚡</div>
+        <div class="service-tag">Build</div>
         <h3>AI Integration &amp; Support</h3>
-        <p>Ready to make AI part of how your business actually runs? We work alongside your team to put the right tools in place, build the workflows, and make sure everyone knows how to use them confidently.</p>
-        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
+        <p>Ready to make AI part of how your business actually runs? We implement, integrate, and stay alongside your team until it sticks.</p>
+        <div class="card-list-label">What We Can Build</div>
+        <ul class="service-list">
+          <li>AI Workflow Automation</li>
+          <li>Custom AI Assistant / Chatbot</li>
+          <li>Document Processing &amp; Summarization</li>
+          <li>CRM &amp; Operations Integration</li>
+          <li>Customer-Facing AI Tools</li>
+          <li>Ongoing Support &amp; Optimization</li>
+        </ul>
       </div>
 
     </div>
 
     <!-- Corporate Strategy Banner -->
-    <div style="margin-top:1.25rem;background:var(--dark);border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+    <div style="margin-top:1.25rem;background:var(--rust);border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
       <div>
-        <div style="font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:.5rem;">Corporate AI Strategy</div>
+        <div style="font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.5rem;">Corporate AI Strategy</div>
         <h3 style="color:white;font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Have an AI strategy but not sure how to act on it?</h3>
-        <p style="color:rgba(255,255,255,.6);font-size:.875rem;line-height:1.7;max-width:580px;">Many organizations know they need to embrace AI but struggle to move from plan to practice. We work alongside your leadership and teams to bridge that gap — translating strategy into real skills, real workflows, and real results your people can feel.</p>
+        <p style="color:rgba(255,255,255,.75);font-size:.875rem;line-height:1.7;max-width:580px;">Many organizations know they need to embrace AI but struggle to move from plan to practice. We work alongside your leadership and teams to bridge that gap — translating strategy into real skills, real workflows, and real results your people can feel.</p>
       </div>
-      <a href="#contact" class="btn-white" style="flex-shrink:0;color:var(--dark);">Let's Talk</a>
+      <a href="#contact" class="btn-white" style="flex-shrink:0;color:var(--rust);">Let's Talk</a>
     </div>
   </div>
 </section>
@@ -592,24 +605,23 @@
       <div>
         <!-- Add your headshot here -->
         <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.75rem;">
-          <img src="headshot.jpg" alt="John Correia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.15);flex-shrink:0;">
-          <div style="width:150px;height:150px;border-radius:50%;background:rgba(44,140,140,.15);border:2px dashed rgba(44,140,140,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;text-align:center;font-size:.7rem;color:rgba(255,255,255,.4);line-height:1.4;padding:.5rem;">Add<br>headshot</div>
+          <img src="img/headshots/john-correia.jpg" alt="John Correia" style="width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid var(--border);flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,.1);">
           <div>
-            <div style="font-size:1rem;font-weight:800;color:var(--white);">John Correia</div>
-            <div style="font-size:.8rem;color:var(--teal-lt);margin-top:.2rem;">Founder, Inland NW AI</div>
+            <div style="font-size:1rem;font-weight:800;color:var(--dark);">John Correia</div>
+            <div style="font-size:.8rem;color:var(--teal);margin-top:.2rem;">Founder, Inland NW AI</div>
           </div>
         </div>
         <div class="section-eyebrow">About</div>
-        <h2 class="section-title">Local. Practical.<br>Here to help.</h2>
+        <h2 class="section-title">Curious by nature.<br>Built to help you grow.</h2>
         <div class="about-body">
           <p>
-            Inland NW AI was started because most AI consulting isn't built for businesses like yours — it's built for enterprise companies with big budgets and dedicated IT teams. We're different. We're here, in the region, and we work with real businesses trying to figure out what AI can actually do for them.
+            I started Inland NW AI because I genuinely love figuring out problems — and right now, AI is one of the most interesting tools available to solve them. My approach isn't to show up with a pre-packaged solution. It's to sit down, understand what you're dealing with, and explore what AI could actually do to help.
           </p>
           <p>
-            With a background in education and technology, we know how to explain complex things clearly and help teams build new habits that stick. We don't show up with a pitch deck — we show up ready to listen and get to work.
+            My background sits at the intersection of two things that don't always go together: the behavioral side of how people learn and adopt technology, and the applied technical skills to actually build and implement AI tools. That combination matters. Most businesses don't fail at AI because of the technology — they fail because the people side isn't handled well. I know both sides of that equation.
           </p>
           <p>
-            We serve businesses, nonprofits, and teams across Spokane, Coeur d'Alene, and the broader Inland Northwest. If you're curious about AI but not sure where to start, you're exactly who we built this for.
+            I work with businesses, nonprofits, and teams across Spokane, Coeur d'Alene, and the Inland Northwest. If you're curious but don't know where to start, that's my favorite kind of conversation.
           </p>
         </div>
         <div class="about-stats">
@@ -636,30 +648,24 @@
         <p class="tagline">Your Inland Northwest AI partner.</p>
         <div class="about-pillars">
           <div class="about-pillar">
-            <div class="about-pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            </div>
+            <div class="about-pillar-icon" style="font-size:1.1rem;">🧭</div>
             <div>
-              <div class="about-pillar-text">People-Centered</div>
-              <div class="about-pillar-sub">We meet your team where they are</div>
+              <div class="about-pillar-text">Curiosity-Driven</div>
+              <div class="about-pillar-sub">Every engagement starts with listening and exploring your problem</div>
             </div>
           </div>
           <div class="about-pillar">
-            <div class="about-pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
+            <div class="about-pillar-icon" style="font-size:1.1rem;">🧠</div>
             <div>
-              <div class="about-pillar-text">Practical</div>
-              <div class="about-pillar-sub">Real-world training and implementation</div>
+              <div class="about-pillar-text">Behavioral + Technical</div>
+              <div class="about-pillar-sub">Strong background in how people learn and adopt technology — not just the tools themselves</div>
             </div>
           </div>
           <div class="about-pillar">
-            <div class="about-pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
+            <div class="about-pillar-icon" style="font-size:1.1rem;">⚡</div>
             <div>
-              <div class="about-pillar-text">Impactful</div>
-              <div class="about-pillar-sub">Build capability that drives results</div>
+              <div class="about-pillar-text">Applied AI Skills</div>
+              <div class="about-pillar-sub">Hands-on experience building and implementing real AI solutions for real teams</div>
             </div>
           </div>
         </div>
