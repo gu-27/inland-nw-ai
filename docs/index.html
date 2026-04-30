@@ -91,6 +91,14 @@
       margin-bottom: .5rem;
     }
     .hero-brand-name em { font-style: normal; color: var(--teal); }
+    .hero-ai-mark {
+      display: inline-flex; align-items: center; vertical-align: middle;
+      margin-left: .2em; margin-bottom: .05em;
+    }
+    .hero-ai-mark img {
+      height: 1em; width: auto;
+      filter: drop-shadow(0 2px 6px rgba(200,90,23,.2));
+    }
     .hero-slogan {
       font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 500;
       color: var(--rust); letter-spacing: .01em;
@@ -167,7 +175,7 @@
     }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
     }
     .service-card {
@@ -231,72 +239,80 @@
     .btn-white:hover { background: var(--cream); }
 
     /* ── APPROACH ── */
-    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 1rem; }
+    .approach-bg { background: var(--teal-dk); position: relative; overflow: hidden; }
+    .approach-bg::before {
+      content: 'HOW'; position: absolute; left: -1rem; top: 50%; transform: translateY(-50%);
+      font-size: 14rem; font-weight: 900; color: rgba(255,255,255,.04);
+      pointer-events: none; user-select: none; line-height: 1; letter-spacing: -.05em;
+    }
+    .approach-bg .section-eyebrow { color: rgba(255,255,255,.6); }
+    .approach-bg .section-eyebrow::before { background: rgba(255,255,255,.4); }
+    .approach-bg .section-title { color: var(--white); }
+    .approach-bg .section-sub { color: rgba(255,255,255,.6); }
+    .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 1rem; }
     .approach-step { position: relative; }
     .approach-step::after {
       content: '→'; position: absolute; right: -1.25rem; top: 1.5rem;
-      font-size: 1.5rem; color: rgba(44,140,140,.25); font-weight: 900;
+      font-size: 1.5rem; color: rgba(255,255,255,.2); font-weight: 900;
     }
     .approach-step:last-child::after { display: none; }
     .approach-num {
-      width: 54px; height: 54px; border-radius: 14px; background: var(--teal);
+      width: 54px; height: 54px; border-radius: 14px; background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.2);
       color: white; font-size: 1.1rem; font-weight: 900;
       display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
     }
-    .approach-step h3 { font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: .6rem; }
-    .approach-step p { font-size: .855rem; color: var(--muted); line-height: 1.75; }
+    .approach-step h3 { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: .6rem; }
+    .approach-step p { font-size: .855rem; color: rgba(255,255,255,.65); line-height: 1.75; }
 
     /* ── ABOUT ── */
-    .about-bg { background: var(--dark); color: var(--white); position: relative; overflow: hidden; }
+    .about-bg { background: var(--white); position: relative; overflow: hidden; }
     .about-bg::after {
       content: 'AI'; position: absolute; right: -3rem; bottom: -2rem;
       font-size: 28rem; font-weight: 900; line-height: 1;
-      color: rgba(255,255,255,.025); pointer-events: none; user-select: none;
+      color: rgba(44,140,140,.04); pointer-events: none; user-select: none;
       letter-spacing: -.05em;
     }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
-    .about-bg .section-eyebrow { color: var(--teal-lt); }
-    .about-bg .section-eyebrow::before { background: var(--teal-lt); }
-    .about-bg .section-title { color: var(--white); }
-    .about-body { font-size: .975rem; color: rgba(255,255,255,.6); line-height: 1.9; }
+    .about-body { font-size: .975rem; color: var(--muted); line-height: 1.9; }
     .about-body p + p { margin-top: 1.25rem; }
     .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
     .about-stat {
-      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
+      background: var(--cream); border: 1px solid var(--border);
       border-radius: 12px; padding: 1.25rem; text-align: center;
     }
-    .about-stat-val { font-size: 1.9rem; font-weight: 900; color: var(--teal-lt); line-height: 1; }
-    .about-stat-label { font-size: .65rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .09em; margin-top: .35rem; }
+    .about-stat-val { font-size: 1.9rem; font-weight: 900; color: var(--teal); line-height: 1; }
+    .about-stat-label { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: .09em; margin-top: .35rem; }
 
     /* about visual */
     .about-visual {
-      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+      background: var(--cream); border: 1px solid var(--border);
       border-radius: 24px; padding: 3rem 2.5rem; text-align: center;
     }
     .about-logo-wrap {
       width: 140px; height: 140px; margin: 0 auto 1.75rem;
-      background: rgba(44,140,140,.12); border: 1px solid rgba(44,140,140,.25);
+      background: white; border: 1px solid var(--border);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
     }
-    .about-logo-wrap svg { width: 88px; height: 88px; }
-    .about-visual h3 { font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: .3rem; }
-    .about-visual .tagline { font-size: .85rem; color: var(--teal-lt); font-style: italic; margin-bottom: 2rem; }
+    .about-logo-wrap img { width: 88px; height: 88px; object-fit: contain; }
+    .about-visual h3 { font-size: 1.5rem; font-weight: 900; color: var(--dark); margin-bottom: .3rem; }
+    .about-visual .tagline { font-size: .85rem; color: var(--teal); font-style: italic; margin-bottom: 2rem; }
     .about-pillars { display: flex; flex-direction: column; gap: .75rem; }
     .about-pillar {
       display: flex; align-items: center; gap: .85rem; text-align: left;
-      padding: .85rem 1rem; background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.07); border-radius: 10px;
+      padding: .85rem 1rem; background: white;
+      border: 1px solid var(--border); border-radius: 10px;
     }
     .about-pillar-icon {
-      width: 32px; height: 32px; border-radius: 8px; background: rgba(44,140,140,.2);
+      width: 32px; height: 32px; border-radius: 8px; background: rgba(44,140,140,.1);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .about-pillar-icon svg { width: 16px; height: 16px; color: var(--teal-lt); }
-    .about-pillar-text { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.75); }
-    .about-pillar-sub { font-size: .72rem; color: rgba(255,255,255,.38); margin-top: .15rem; }
+    .about-pillar-icon svg { width: 16px; height: 16px; color: var(--teal); }
+    .about-pillar-text { font-size: .82rem; font-weight: 600; color: var(--dark); }
+    .about-pillar-sub { font-size: .72rem; color: var(--muted); margin-top: .15rem; }
 
     /* ── CONTACT ── */
-    .contact-bg { background: var(--cream); }
+    .contact-bg { background: var(--rust); }
     .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
     .contact-inner .section-sub { margin: 0 auto 2.5rem; }
     .contact-inner .section-eyebrow { justify-content: center; }
@@ -349,11 +365,14 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .services-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       .services-grid { grid-template-columns: 1fr; }
-      .approach-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .approach-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .approach-grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .approach-step::after { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .hero h1 { font-size: 2.4rem; }
@@ -389,7 +408,7 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
+    <img src="img/logo.png" alt="Inland NW AI" style="width:42px;height:42px;object-fit:contain;">
     <div class="nav-logo-text">
       Inland NW AI
       <span>Your Inland Northwest AI partner.</span>
@@ -414,7 +433,7 @@
     <!-- Brand Lockup -->
     <div class="hero-brand">
       <div class="hero-brand-logo">
-        <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
+        <img src="img/logo.png" alt="Inland NW AI" style="width:72px;height:72px;object-fit:contain;">
       </div>
       <div class="hero-brand-name">Inland NW <em>AI</em></div>
       <div class="hero-slogan">Your local guide to AI — practical, friendly, and built for Inland Northwest businesses.</div>
@@ -466,16 +485,39 @@
 
     <div class="services-grid">
 
-      <!-- Phase 1: Education -->
+      <!-- Step 1: Explore -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="service-tag">Step 1 — Explore</div>
+        <h3>AI Discovery Session</h3>
+        <p>Not sure where AI fits in your business? We start with a free, no-pressure conversation to learn what you do, where your team spends time, and where AI could genuinely help. No jargon, no pitch — just an honest look at your situation.</p>
+        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--teal);font-weight:700;">Free — 30 Minutes</div>
+      </div>
+
+      <!-- Step 2: Assess -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+        </div>
+        <div class="service-tag">Step 2 — Assess</div>
+        <h3>AI Assessment &amp; Strategy</h3>
+        <p>A deeper look at where AI can create real value for your organization. We assess your workflows, tools, and team readiness, then deliver a clear, actionable roadmap — what to pursue, what to skip, and how to get started with confidence.</p>
+        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
+      </div>
+
+      <!-- Step 3: Learn -->
       <div class="service-card" id="workshops">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         </div>
-        <div class="service-tag">Step 1 — Learn</div>
+        <div class="service-tag">Step 3 — Learn</div>
         <h3>AI Training for Your Team</h3>
-        <p>Hands-on workshops at your location, built around what your team actually does. We skip the jargon and focus on real tools your people can use the next day. Sessions start at $299.</p>
+        <p>Hands-on workshops at your location, built around what your team actually does. We skip the jargon and focus on real tools your people can use starting the next day. Sessions start at $299.</p>
         <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-top:1.1rem;margin-bottom:.6rem;">Available Modules</div>
         <ul class="service-list">
+          <li>What the heck is AI?</li>
           <li>AI for Analysis</li>
           <li>AI for Data Analytics</li>
           <li>AI for Automation</li>
@@ -486,23 +528,12 @@
         </ul>
       </div>
 
-      <!-- Phase 2: Consulting -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
-        </div>
-        <div class="service-tag">Step 2 — Plan</div>
-        <h3>AI Strategy &amp; Roadmap</h3>
-        <p>Not sure what AI is worth pursuing for your business? We help you cut through the noise, spot the real opportunities, and build a straightforward plan that fits your team, your budget, and your goals.</p>
-        <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
-      </div>
-
-      <!-- Phase 3: Integration -->
+      <!-- Step 4: Build -->
       <div class="service-card accent">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <div class="service-tag">Step 3 — Build</div>
+        <div class="service-tag">Step 4 — Build</div>
         <h3>AI Integration &amp; Support</h3>
         <p>Ready to make AI part of how your business actually runs? We work alongside your team to put the right tools in place, build the workflows, and make sure everyone knows how to use them confidently.</p>
         <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
@@ -522,20 +553,8 @@
   </div>
 </section>
 
-<!-- ── AI CALLOUT ── -->
-<div class="ai-strip">
-  <div class="ai-strip-bg">AI</div>
-  <div class="ai-strip-inner">
-    <div>
-      <h2>AI is a tool.<br>Your team is the point.</h2>
-      <p>The businesses winning with AI aren't the ones with the biggest budgets — they're the ones who took the time to learn it, use it well, and keep their people at the center. That's what we help you do.</p>
-    </div>
-    <a href="#contact" class="btn-white">Start the Conversation</a>
-  </div>
-</div>
-
 <!-- ── APPROACH ── -->
-<section id="approach">
+<section class="approach-bg" id="approach">
   <div class="section-inner">
     <div class="section-eyebrow">Our Approach</div>
     <h2 class="section-title">How it actually works</h2>
@@ -544,18 +563,23 @@
     <div class="approach-grid">
       <div class="approach-step">
         <div class="approach-num">1</div>
-        <h3>We listen first</h3>
-        <p>We spend time learning your business — your workflows, your team, your goals. No assumptions, no off-the-shelf answers. Just a real conversation about where you are and where you want to go.</p>
+        <h3>Explore</h3>
+        <p>A free conversation to understand your business, your team, and where AI could genuinely fit. No assumptions, no pressure.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">2</div>
-        <h3>We make a plan together</h3>
-        <p>We'll map out a clear, honest path forward — what to try first, what to skip for now, and what success actually looks like. You'll know exactly what to expect before we do anything.</p>
+        <h3>Assess</h3>
+        <p>We dig deeper into your workflows and opportunities, then deliver a clear, honest roadmap — what to pursue, in what order, and why.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">3</div>
-        <h3>We work alongside you</h3>
-        <p>We don't hand you a playbook and disappear. We train your team, help set things up, and stay available until everyone feels confident. The goal is for you to own it — not depend on us.</p>
+        <h3>Learn</h3>
+        <p>Hands-on training at your location, built around what your team actually does. Real tools, real practice, starting the next day.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">4</div>
+        <h3>Build</h3>
+        <p>We help implement, integrate, and stay alongside your team until AI is part of how your business runs — and your people feel confident using it.</p>
       </div>
     </div>
   </div>
@@ -606,7 +630,7 @@
 
       <div class="about-visual">
         <div class="about-logo-wrap">
-          <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
+          <img src="img/logo.png" alt="Inland NW AI" style="width:88px;height:88px;object-fit:contain;">
         </div>
         <h3>Inland NW AI</h3>
         <p class="tagline">Your Inland Northwest AI partner.</p>
@@ -648,9 +672,9 @@
 <section class="contact-bg" id="contact">
   <div class="section-inner">
     <div class="contact-inner">
-      <div class="section-eyebrow">Get Started</div>
-      <h2 class="section-title">Let's figure it out together</h2>
-      <p class="section-sub">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,.7);justify-content:center;">Get Started</div>
+      <h2 class="section-title" style="color:white;">Let's figure it out together</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.75);margin:0 auto 2.5rem;">
         Not sure if AI is right for your business? That's what the first call is for. It's free, it's casual, and there's no obligation — just a conversation.
       </p>
 
@@ -685,7 +709,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-logo">
-      <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
+      <img src="img/logo.png" alt="Inland NW AI" style="width:38px;height:38px;object-fit:contain;filter:brightness(0) invert(1) opacity(.7);">
       <div class="footer-logo-text">
         Inland NW AI
         <span>Your Inland Northwest AI partner.</span>
