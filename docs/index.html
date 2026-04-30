@@ -51,47 +51,66 @@
     /* ── HERO ── */
     .hero {
       background: var(--cream);
-      padding: 5rem 2.5rem 4.5rem;
+      padding: 5.5rem 2.5rem 5rem;
       position: relative; overflow: hidden;
-      min-height: 92vh; display: flex; align-items: center;
-    }
-    .hero-bg-ai {
-      position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
-      font-size: clamp(18rem, 32vw, 30rem); font-weight: 900; line-height: 1;
-      color: rgba(44,140,140,.07); pointer-events: none; user-select: none;
-      letter-spacing: -.05em;
+      min-height: 94vh; display: flex; align-items: center;
     }
     .hero-bg-dots {
       position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(circle, rgba(44,140,140,.12) 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(44,140,140,.1) 1px, transparent 1px);
       background-size: 36px 36px;
-      mask-image: radial-gradient(ellipse at 80% 50%, black 0%, transparent 60%);
+      mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 75%);
+    }
+    .hero-bg-glow {
+      position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 500px; pointer-events: none;
+      background: radial-gradient(ellipse, rgba(44,140,140,.08) 0%, transparent 70%);
     }
     .hero-inner {
-      max-width: 1100px; margin: 0 auto; width: 100%;
-      display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center;
-      position: relative; z-index: 1;
+      max-width: 820px; margin: 0 auto; width: 100%;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; position: relative; z-index: 1;
     }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: .5rem;
-      font-size: .68rem; font-weight: 700; letter-spacing: .15em;
-      text-transform: uppercase; color: var(--teal);
+
+    /* brand lockup */
+    .hero-brand {
+      display: flex; flex-direction: column; align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .hero-brand-logo {
+      width: 110px; height: 110px;
+      background: white; border-radius: 28px;
+      box-shadow: 0 4px 24px rgba(44,140,140,.18), 0 1px 4px rgba(0,0,0,.06);
+      display: flex; align-items: center; justify-content: center;
       margin-bottom: 1.5rem;
     }
-    .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--teal); }
-    .hero h1 {
-      font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.08;
-      color: var(--dark); margin-bottom: 1.5rem; letter-spacing: -.03em;
+    .hero-brand-logo svg { width: 72px; height: 72px; }
+    .hero-brand-name {
+      font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 900;
+      color: var(--dark); letter-spacing: -.04em; line-height: 1;
+      margin-bottom: .5rem;
     }
-    .hero h1 em { font-style: normal; color: var(--teal); }
-    .hero h1 .dot { color: var(--rust); }
+    .hero-brand-name em { font-style: normal; color: var(--teal); }
+    .hero-slogan {
+      font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 500;
+      color: var(--rust); letter-spacing: .01em;
+      border-top: 1px solid var(--border); padding-top: .85rem; margin-top: .6rem;
+    }
+
+    /* divider */
+    .hero-divider {
+      width: 48px; height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--rust));
+      margin: 0 auto 1.75rem;
+    }
+
     .hero p {
       font-size: 1.05rem; color: var(--muted); line-height: 1.85;
-      max-width: 540px; margin-bottom: 2.5rem;
+      max-width: 580px; margin: 0 auto 2.5rem;
     }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center; }
     .hero-values {
-      display: flex; gap: 1.75rem; margin-top: 3rem; flex-wrap: wrap;
+      display: flex; gap: 1.75rem; margin-top: 3rem; flex-wrap: wrap; justify-content: center;
     }
     .hero-value {
       display: flex; align-items: center; gap: .45rem;
@@ -99,35 +118,6 @@
       text-transform: uppercase; letter-spacing: .08em;
     }
     .hero-value::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
-
-    /* hero logo visual */
-    .hero-visual {
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; position: relative;
-    }
-    .hero-logo-ring {
-      position: relative; width: 320px; height: 320px;
-    }
-    .hero-logo-ring .ring-outer {
-      position: absolute; inset: 0; border-radius: 50%;
-      border: 1.5px solid rgba(44,140,140,.2);
-      animation: spin 20s linear infinite;
-    }
-    .hero-logo-ring .ring-inner {
-      position: absolute; inset: 30px; border-radius: 50%;
-      border: 1px dashed rgba(44,140,140,.15);
-      animation: spin 14s linear infinite reverse;
-    }
-    .hero-logo-ring .logo-center {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    }
-    .orbit-dot {
-      position: absolute; width: 10px; height: 10px; border-radius: 50%;
-      background: var(--teal); opacity: .5;
-    }
-    .orbit-dot:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); }
-    .orbit-dot:nth-child(2) { bottom: 12%; right: 15%; }
-    .orbit-dot:nth-child(3) { top: 50%; right: 4%; transform: translateY(-50%); background: var(--rust); }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* Buttons */
@@ -360,7 +350,6 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
-      .hero-visual { display: none; }
     }
     @media (max-width: 768px) {
       .services-grid { grid-template-columns: 1fr; }
@@ -403,7 +392,7 @@
     <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
     <div class="nav-logo-text">
       Inland NW AI
-      <span>Powered by CuriosITy. Empower Your Team.</span>
+      <span>Your Inland Northwest AI partner.</span>
     </div>
   </a>
   <ul class="nav-links">
@@ -419,43 +408,37 @@
 <!-- ── HERO ── -->
 <section class="hero" id="home">
   <div class="hero-bg-dots"></div>
-  <div class="hero-bg-ai">AI</div>
+  <div class="hero-bg-glow"></div>
   <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-eyebrow">AI Training &amp; Consulting · Inland Northwest</div>
-      <h1>Build <em>AI Capability</em><br>With Confidence<span class="dot">.</span></h1>
-      <p>
-        We come to your business, spend time understanding your specific situation, and deliver
-        customized training and consulting that helps your team actually use AI — not just
-        understand it exists.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">
-          Book a Discovery Call
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a href="#services" class="btn-secondary">Explore Services</a>
+
+    <!-- Brand Lockup -->
+    <div class="hero-brand">
+      <div class="hero-brand-logo">
+        <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
       </div>
-      <div class="hero-values">
-        <div class="hero-value">In-Person</div>
-        <div class="hero-value">Customized</div>
-        <div class="hero-value">Inland Northwest</div>
-      </div>
+      <div class="hero-brand-name">Inland NW <em>AI</em></div>
+      <div class="hero-slogan">Your local guide to AI — practical, friendly, and built for Inland Northwest businesses.</div>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-logo-ring">
-        <div class="ring-outer">
-          <div class="orbit-dot"></div>
-          <div class="orbit-dot"></div>
-          <div class="orbit-dot"></div>
-        </div>
-        <div class="ring-inner"></div>
-        <div class="logo-center">
-          <svg viewBox="0 0 80 80" width="160" height="160"><use href="#logo-icon"/></svg>
-        </div>
-      </div>
+    <div class="hero-divider"></div>
+
+    <p>
+      AI doesn't have to be complicated or intimidating. We come to your business, learn what you actually do,
+      and help your team start using AI in ways that save time and make work easier — starting this week.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Let's Talk — It's Free
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#services" class="btn-secondary">See How We Help</a>
     </div>
+    <div class="hero-values">
+      <div class="hero-value">In-Person</div>
+      <div class="hero-value">Customized</div>
+      <div class="hero-value">Inland Northwest</div>
+    </div>
+
   </div>
 </section>
 
@@ -466,18 +449,20 @@
 
 <!-- ── SOCIAL PROOF BAR ── -->
 <div style="background:var(--white);border-bottom:1px solid var(--border);padding:1rem 2.5rem;text-align:center;">
-  <p style="font-size:.82rem;color:var(--muted);font-weight:500;">Serving businesses, nonprofits, and institutions across <strong style="color:var(--dark);font-weight:700;">Spokane, Coeur d'Alene, and the Inland Northwest</strong></p>
+  <p style="font-size:.82rem;color:var(--muted);font-weight:500;">Proudly serving businesses, nonprofits, and teams across <strong style="color:var(--dark);font-weight:700;">Spokane, Coeur d'Alene, and the Inland Northwest</strong></p>
 </div>
 
 <!-- ── SERVICES ── -->
 <section class="services-bg" id="services">
   <div class="section-inner">
+    <div class="section-eyebrow">How We Help</div>
+    <h2 class="section-title">Simple steps. Real results.</h2>
     <!-- Engagement intro -->
     <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.5rem 2rem;margin-bottom:2.5rem;text-align:center;">
-      <p style="font-size:1rem;color:var(--muted);line-height:1.75;">Custom engagements designed around your team, your industry, and your goals. <a href="#contact" style="color:var(--teal);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Book a free discovery call</a> to explore what's right for you.</p>
+      <p style="font-size:1rem;color:var(--muted);line-height:1.75;">Not sure where to start? That's completely normal. <a href="#contact" style="color:var(--teal);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Book a free 30-minute call</a> and we'll point you in the right direction — no pressure, no commitment.</p>
     </div>
 
-    <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.75rem;font-style:italic;">Choose where you are in your journey — or let us help you figure that out together.</p>
+    <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.75rem;font-style:italic;">Pick where you are today — or we'll help you figure that out together.</p>
 
     <div class="services-grid">
 
@@ -486,9 +471,9 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         </div>
-        <div class="service-tag">Education</div>
-        <h3>AI Training Workshops</h3>
-        <p>Structured learning sessions built around your team, your industry, and your goals. Each module pairs AI fundamentals with your specific use case so the learning is immediately applicable.</p>
+        <div class="service-tag">Step 1 — Learn</div>
+        <h3>AI Training for Your Team</h3>
+        <p>Hands-on workshops at your location, built around what your team actually does. We skip the jargon and focus on real tools your people can use the next day. Sessions start at $299.</p>
         <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-top:1.1rem;margin-bottom:.6rem;">Available Modules</div>
         <ul class="service-list">
           <li>AI for Analysis</li>
@@ -506,9 +491,9 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
         </div>
-        <div class="service-tag">Consulting</div>
-        <h3>AI Strategy and Planning</h3>
-        <p>Move from curiosity to a clear plan. We help you identify where AI creates the most value for your organization and build a roadmap grounded in what is actually achievable for your team and budget.</p>
+        <div class="service-tag">Step 2 — Plan</div>
+        <h3>AI Strategy &amp; Roadmap</h3>
+        <p>Not sure what AI is worth pursuing for your business? We help you cut through the noise, spot the real opportunities, and build a straightforward plan that fits your team, your budget, and your goals.</p>
         <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
       </div>
 
@@ -517,9 +502,9 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <div class="service-tag">Integration</div>
-        <h3>AI Implementation</h3>
-        <p>For organizations ready to embed AI into how they operate. We work alongside your team to implement your AI strategy, build the right workflows, and ensure every person has the capability to use them effectively.</p>
+        <div class="service-tag">Step 3 — Build</div>
+        <h3>AI Integration &amp; Support</h3>
+        <p>Ready to make AI part of how your business actually runs? We work alongside your team to put the right tools in place, build the workflows, and make sure everyone knows how to use them confidently.</p>
         <div style="margin-top:1.25rem;font-size:.78rem;color:var(--muted);font-weight:600;">Custom Quoted</div>
       </div>
 
@@ -529,8 +514,8 @@
     <div style="margin-top:1.25rem;background:var(--dark);border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
       <div>
         <div style="font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:.5rem;">Corporate AI Strategy</div>
-        <h3 style="color:white;font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Already have an AI strategy? We help you execute it.</h3>
-        <p style="color:rgba(255,255,255,.6);font-size:.875rem;line-height:1.7;max-width:580px;">Many organizations have invested in developing an AI strategy but face real challenges putting it into practice. We partner with corporations to close that gap — training teams, aligning workflows, and building the internal capability needed to make the strategy real.</p>
+        <h3 style="color:white;font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Have an AI strategy but not sure how to act on it?</h3>
+        <p style="color:rgba(255,255,255,.6);font-size:.875rem;line-height:1.7;max-width:580px;">Many organizations know they need to embrace AI but struggle to move from plan to practice. We work alongside your leadership and teams to bridge that gap — translating strategy into real skills, real workflows, and real results your people can feel.</p>
       </div>
       <a href="#contact" class="btn-white" style="flex-shrink:0;color:var(--dark);">Let's Talk</a>
     </div>
@@ -542,8 +527,8 @@
   <div class="ai-strip-bg">AI</div>
   <div class="ai-strip-inner">
     <div>
-      <h2>CuriosITy leads.<br>AI empowers.</h2>
-      <p>The organizations that thrive with AI are the ones who move with intention. They invest in their people, align technology to their goals, and build capability that lasts. We help you do exactly that.</p>
+      <h2>AI is a tool.<br>Your team is the point.</h2>
+      <p>The businesses winning with AI aren't the ones with the biggest budgets — they're the ones who took the time to learn it, use it well, and keep their people at the center. That's what we help you do.</p>
     </div>
     <a href="#contact" class="btn-white">Start the Conversation</a>
   </div>
@@ -553,24 +538,24 @@
 <section id="approach">
   <div class="section-inner">
     <div class="section-eyebrow">Our Approach</div>
-    <h2 class="section-title">Powered by CuriosITy</h2>
-    <p class="section-sub">We lead with your goals, then align the right technology to help you reach them. Every engagement begins with deep listening and ends with your team confident and capable.</p>
+    <h2 class="section-title">How it actually works</h2>
+    <p class="section-sub">No long contracts, no confusing proposals. We start by listening, figure out what makes sense for your business, and go from there — together.</p>
 
     <div class="approach-grid">
       <div class="approach-step">
         <div class="approach-num">1</div>
-        <h3>Explore</h3>
-        <p>We start by understanding your organization, your people, and where AI can create the most value. No assumptions. No generic answers.</p>
+        <h3>We listen first</h3>
+        <p>We spend time learning your business — your workflows, your team, your goals. No assumptions, no off-the-shelf answers. Just a real conversation about where you are and where you want to go.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">2</div>
-        <h3>Plan</h3>
-        <p>Together we build a roadmap that is honest about what is possible, prioritizes what matters most, and fits your timeline and budget.</p>
+        <h3>We make a plan together</h3>
+        <p>We'll map out a clear, honest path forward — what to try first, what to skip for now, and what success actually looks like. You'll know exactly what to expect before we do anything.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">3</div>
-        <h3>Build and Support</h3>
-        <p>We implement, train, and stay engaged until your team is confident. We measure success by your outcomes, not our hours billed.</p>
+        <h3>We work alongside you</h3>
+        <p>We don't hand you a playbook and disappear. We train your team, help set things up, and stay available until everyone feels confident. The goal is for you to own it — not depend on us.</p>
       </div>
     </div>
   </div>
@@ -591,21 +576,16 @@
           </div>
         </div>
         <div class="section-eyebrow">About</div>
-        <h2 class="section-title">Grounded in Education.<br>Built on CuriosITy.</h2>
+        <h2 class="section-title">Local. Practical.<br>Here to help.</h2>
         <div class="about-body">
           <p>
-            Inland NW AI was founded on a simple belief: AI adoption done right starts with
-            genuine curiosity. Not hype. Not fear. Not pressure to keep up with the latest headline.
+            Inland NW AI was started because most AI consulting isn't built for businesses like yours — it's built for enterprise companies with big budgets and dedicated IT teams. We're different. We're here, in the region, and we work with real businesses trying to figure out what AI can actually do for them.
           </p>
           <p>
-            With a background in education and technology consulting, we have spent years helping
-            people understand and adopt emerging technologies in ways that actually stick.
-            Our work is practical, personalized, and grounded in how real teams learn and change.
+            With a background in education and technology, we know how to explain complex things clearly and help teams build new habits that stick. We don't show up with a pitch deck — we show up ready to listen and get to work.
           </p>
           <p>
-            We serve businesses, nonprofits, higher education institutions, and leadership teams
-            across Spokane, Coeur d'Alene, and the broader Inland Northwest who want to move
-            thoughtfully and build something that lasts.
+            We serve businesses, nonprofits, and teams across Spokane, Coeur d'Alene, and the broader Inland Northwest. If you're curious about AI but not sure where to start, you're exactly who we built this for.
           </p>
         </div>
         <div class="about-stats">
@@ -629,7 +609,7 @@
           <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
         </div>
         <h3>Inland NW AI</h3>
-        <p class="tagline">Powered by CuriosITy. Empower Your Team.</p>
+        <p class="tagline">Your Inland Northwest AI partner.</p>
         <div class="about-pillars">
           <div class="about-pillar">
             <div class="about-pillar-icon">
@@ -669,14 +649,14 @@
   <div class="section-inner">
     <div class="contact-inner">
       <div class="section-eyebrow">Get Started</div>
-      <h2 class="section-title">Start Your AI Journey</h2>
+      <h2 class="section-title">Let's figure it out together</h2>
       <p class="section-sub">
-        Book a discovery call — let's explore how AI can help your team work smarter, move faster, and create lasting impact.
+        Not sure if AI is right for your business? That's what the first call is for. It's free, it's casual, and there's no obligation — just a conversation.
       </p>
 
       <div class="contact-card">
-        <h3>Book a Discovery Call</h3>
-        <p>30 minutes. No pressure. We'll talk through your situation and what AI could look like for your organization.</p>
+        <h3>Book a Free Discovery Call</h3>
+        <p>30 minutes. We'll listen to what you're working on, share what we've seen work for similar businesses, and give you an honest take on where AI could help — or where it might not be worth your time yet.</p>
         <!-- Replace the div below with your Calendly embed script -->
         <div class="calendly-placeholder">
           📅 &nbsp; Add your Calendly booking widget here<br>
@@ -708,7 +688,7 @@
       <svg viewBox="0 0 80 80"><use href="#logo-icon"/></svg>
       <div class="footer-logo-text">
         Inland NW AI
-        <span>Powered by CuriosITy. Empower Your Team.</span>
+        <span>Your Inland Northwest AI partner.</span>
       </div>
     </div>
     <div class="footer-links">
