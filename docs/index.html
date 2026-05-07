@@ -207,7 +207,7 @@
       border-bottom: 2.5px solid rgba(44,140,140,.2); padding-bottom: .5rem;
     }
     .service-card.accent .service-tag { color: var(--rust); border-color: rgba(200,90,23,.25); }
-    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--muted); line-height: 1.3; }
+    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--muted); line-height: 1.3; padding-top: .6rem; }
     .service-card > p { font-size: .875rem; color: var(--muted); line-height: 1.75; }
     .service-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; margin-top: .25rem; }
     .service-list li { font-size: .82rem; color: var(--muted); display: flex; align-items: flex-start; gap: .55rem; line-height: 1.5; }
@@ -478,34 +478,51 @@
 <section class="services-bg" id="services">
   <div class="section-inner">
     <div class="section-eyebrow">How We Help</div>
-    <h2 class="section-title">Start anywhere. Go as far as you want.</h2>
-    <p class="section-sub">You don't have to follow a rigid path. Some clients just want to explore. Others are ready to build. Most start somewhere in between — and that's completely fine.</p>
+    <h2 class="section-title">Start with a free hour. Go as far as you want.</h2>
+    <p class="section-sub">Every engagement begins with a free 1-hour consultation and business audit — no commitment, no pitch. From there, some clients want a strategic plan. Others want training. Some are ready to build. Most find their own path, and that's completely fine.</p>
 
     <div class="services-grid">
 
-      <!-- Explore -->
+      <!-- Tier 1: Consult & Audit -->
       <div class="service-card">
         <div class="service-icon">🧭</div>
-        <div class="service-tag">Explore</div>
-        <h3>AI Discovery Session</h3>
-        <p>A free, no-pressure conversation to learn where AI could genuinely help your business. No jargon, no pitch.</p>
-        <div class="card-list-label">What We Cover</div>
+        <div class="service-tag">Consult &amp; Audit — Free</div>
+        <h3>1-Hour AI Consultation &amp; Business Audit</h3>
+        <p>A free one-hour session to understand your business, walk through your current tools, and find where AI can genuinely save time or money. No commitment, no jargon.</p>
+        <div class="card-list-label">What We Explore Together</div>
         <ul class="service-list">
-          <li>What AI actually is (and isn't)</li>
-          <li>Where your team spends the most time</li>
-          <li>Quick-win opportunities</li>
-          <li>Honest take on fit and readiness</li>
-          <li>What a next step could look like</li>
-          <li>No commitment required</li>
+          <li>What AI is — and what it actually means for your business</li>
+          <li>Your biggest pain points and where time gets lost</li>
+          <li>A review of your current software and tech stack</li>
+          <li>Opportunities across data &amp; analytics</li>
+          <li>Opportunities across automation &amp; operations</li>
+          <li>Opportunities across strategy &amp; marketing</li>
         </ul>
       </div>
 
-      <!-- Learn -->
+      <!-- Tier 2: Roadmap & Strategy -->
+      <div class="service-card">
+        <div class="service-icon">🗺️</div>
+        <div class="service-tag">Strategize</div>
+        <h3>AI Roadmap &amp; Strategic Plan</h3>
+        <p>A clear, actionable plan for how your organization adopts AI — prioritized for your budget, your team, and your goals. Includes evaluation of new technologies worth considering.</p>
+        <div class="card-list-label">What You Get</div>
+        <ul class="service-list">
+          <li>Full AI opportunity assessment</li>
+          <li>Workflow &amp; process analysis</li>
+          <li>Phased adoption roadmap with prioritized next steps</li>
+          <li>Technology evaluation — build vs. buy guidance</li>
+          <li>Vendor &amp; tool recommendations</li>
+          <li>Engagement levels tailored to your pace and capacity</li>
+        </ul>
+      </div>
+
+      <!-- Tier 3: Training -->
       <div class="service-card" id="workshops">
         <div class="service-icon">📖</div>
-        <div class="service-tag">Learn</div>
+        <div class="service-tag">Train</div>
         <h3>AI Training for Your Team</h3>
-        <p>Hands-on workshops at your location, built around what your team actually does. Real tools, no jargon. Sessions start at $299.</p>
+        <p>Hands-on workshops at your location, built around what your team actually does. Real tools, practical skills, no jargon. Sessions start at $299.</p>
         <div class="card-list-label">Available Modules</div>
         <ul class="service-list">
           <li>What the heck is AI?</li>
@@ -518,37 +535,20 @@
         </ul>
       </div>
 
-      <!-- Strategize -->
-      <div class="service-card">
-        <div class="service-icon">🗺️</div>
-        <div class="service-tag">Strategize</div>
-        <h3>AI Evaluation &amp; Strategy</h3>
-        <p>A deeper look at where AI creates real value for your organization — and a clear roadmap for getting there.</p>
-        <div class="card-list-label">We Can Help You With</div>
-        <ul class="service-list">
-          <li>AI Opportunity Assessment</li>
-          <li>Workflow &amp; Process Analysis</li>
-          <li>Build vs. Buy Evaluation</li>
-          <li>AI Roadmap &amp; Prioritization</li>
-          <li>Vendor &amp; Tool Selection</li>
-          <li>Risk &amp; Compliance Review</li>
-        </ul>
-      </div>
-
-      <!-- Build -->
+      <!-- Tier 4: Build -->
       <div class="service-card accent">
         <div class="service-icon">⚡</div>
         <div class="service-tag">Build</div>
-        <h3>AI Integration &amp; Support</h3>
-        <p>Ready to make AI part of how your business actually runs? We implement, integrate, and stay alongside your team until it sticks.</p>
+        <h3>Custom AI Tools &amp; Solutions</h3>
+        <p>We build what your business actually needs — from simple automations to full interactive tools. Designed for small and mid-sized businesses that want real capability without enterprise price tags.</p>
         <div class="card-list-label">What We Can Build</div>
         <ul class="service-list">
-          <li>AI Workflow Automation</li>
-          <li>Custom AI Assistant / Chatbot</li>
-          <li>Document Processing &amp; Summarization</li>
-          <li>CRM &amp; Operations Integration</li>
-          <li>Customer-Facing AI Tools</li>
-          <li>Ongoing Support &amp; Optimization</li>
+          <li>Dashboards &amp; reporting tools</li>
+          <li>Interactive web tools &amp; calculators</li>
+          <li>Predictive models &amp; data pipelines</li>
+          <li>Workflow &amp; process automation</li>
+          <li>Custom AI assistants &amp; chatbots</li>
+          <li>CRM, operations &amp; marketing integrations</li>
         </ul>
       </div>
 
@@ -576,23 +576,23 @@
     <div class="approach-grid">
       <div class="approach-step">
         <div class="approach-num">1</div>
-        <h3>Explore</h3>
-        <p>A free conversation to understand your business, your team, and where AI could genuinely fit. No assumptions, no pressure.</p>
+        <h3>Consult &amp; Audit</h3>
+        <p>A free one-hour session to understand your business, review your tools, and explore where AI creates real value — across analytics, automation, operations, strategy, and marketing.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">2</div>
-        <h3>Assess</h3>
-        <p>We dig deeper into your workflows and opportunities, then deliver a clear, honest roadmap — what to pursue, in what order, and why.</p>
+        <h3>Strategize</h3>
+        <p>We develop a clear AI roadmap tailored to your goals — prioritized, phased, and practical. Includes evaluating which technologies are worth adopting and at what pace.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">3</div>
-        <h3>Learn</h3>
-        <p>Hands-on training at your location, built around what your team actually does. Real tools, real practice, starting the next day.</p>
+        <h3>Train</h3>
+        <p>Hands-on workshops built around what your team actually does. Real tools, real practice — your people leave knowing how to use AI the next day.</p>
       </div>
       <div class="approach-step">
         <div class="approach-num">4</div>
         <h3>Build</h3>
-        <p>We help implement, integrate, and stay alongside your team until AI is part of how your business runs — and your people feel confident using it.</p>
+        <p>We build what you need — dashboards, automation, models, web tools, or custom AI assistants — designed for small and mid-sized businesses that want real capability without the enterprise cost.</p>
       </div>
     </div>
   </div>
