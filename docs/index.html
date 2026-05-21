@@ -327,13 +327,13 @@
     .contact-inner .section-eyebrow::before { display: none; }
     .contact-card {
       background: var(--white); border: 1px solid var(--border); border-radius: 20px;
-      padding: 2.5rem; margin-bottom: 1.5rem;
+      padding: 2rem 2rem 0; margin-bottom: 1.5rem; overflow: hidden;
     }
     .contact-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--dark); margin-bottom: .4rem; }
-    .contact-card p { font-size: .875rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.65; }
-    .calendly-placeholder {
-      background: var(--cream); border: 2px dashed var(--border); border-radius: 12px;
-      padding: 2.5rem; font-size: .85rem; color: var(--muted); line-height: 1.7;
+    .contact-card p { font-size: .875rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.65; }
+    .calendar-embed {
+      width: 100%; border: none; display: block;
+      border-radius: 0 0 20px 20px; min-height: 600px;
     }
     .contact-alts { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.25rem; }
     .contact-alt {
@@ -683,7 +683,11 @@
       <div class="contact-card">
         <h3>Book a Free Discovery Call</h3>
         <p>30 minutes. We'll listen to what you're working on, share what we've seen work for similar businesses, and give you an honest take on where AI could help, or where it might not be worth your time yet.</p>
-        <a href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block;margin-top:.5rem;">📅 Book a Time</a>
+        <iframe class="calendar-embed"
+          src="https://calendar.app.google/bfwvT6jSwvPMqio67"
+          frameborder="0"
+          title="Book a Discovery Call with Inland NW AI">
+        </iframe>
       </div>
 
       <div class="contact-alts">
