@@ -391,6 +391,100 @@
       .footer-top { flex-direction: column; align-items: flex-start; }
       .about-stats { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ══════════════════════════════════════════════════════════════════════
+       REDESIGN ADDITIONS — archetypes / matrix / how-it-works / pricing
+       (content + structure only; reuses existing brand vars & components)
+       ══════════════════════════════════════════════════════════════════════ */
+
+    /* smooth-scroll targets clear the 68px sticky nav */
+    section[id] { scroll-margin-top: 84px; }
+
+    /* Archetype cards — reuse .service-card chrome, free internal layout */
+    .services-grid.archetypes { row-gap: 1.25rem; }
+    .services-grid.archetypes .service-card {
+      grid-row: auto; grid-template-rows: none;
+      display: flex; flex-direction: column; text-align: center;
+    }
+    .card-role { font-size: 1rem; font-weight: 700; color: var(--muted); line-height: 1.3; margin: .9rem 0 .1rem; }
+    .card-hook { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-top: .6rem; }
+    .card-actions { margin-top: auto; display: flex; flex-direction: column; gap: .6rem; padding-top: 1.5rem; }
+    .btn-block { width: 100%; justify-content: center; }
+
+    /* Services matrix — Automation/Analytics/AI × Build/Consult/Train */
+    .matrix {
+      display: grid; grid-template-columns: minmax(90px,150px) repeat(3,1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; margin-top: 2.5rem;
+    }
+    .matrix-corner, .matrix-colhead, .matrix-rowhead, .matrix-cell { background: var(--white); padding: 1rem 1.1rem; }
+    .matrix-colhead {
+      background: var(--teal-dk); color: #fff; font-size: .72rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .07em; text-align: center;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .matrix-rowhead { background: var(--cream); font-weight: 800; color: var(--dark); font-size: .9rem; display: flex; align-items: center; }
+    .matrix-cell { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+    .matrix-cell .m-mode {
+      display: none; font-size: .66rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--rust); margin-bottom: .35rem;
+    }
+    @media (max-width: 768px) {
+      .matrix { display: block; border: none; background: transparent; border-radius: 0; margin-top: 1rem; }
+      .matrix-corner, .matrix-colhead { display: none; }
+      .matrix-rowhead { background: var(--teal-dk); color: #fff; border-radius: 12px 12px 0 0; margin-top: 1.25rem; }
+      .matrix-cell { border: 1px solid var(--border); border-top: none; }
+      .matrix-cell:last-child { border-radius: 0 0 12px 12px; }
+      .matrix-cell .m-mode { display: block; }
+    }
+
+    /* How It Works — size-tiered tracks (reuse .approach-*) */
+    .approach-track + .approach-track { margin-top: 3.25rem; padding-top: 3.25rem; border-top: 1px solid rgba(255,255,255,.1); }
+    .approach-track-label {
+      font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--teal-lt); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .6rem;
+    }
+    .approach-track-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--teal-lt); }
+    .approach-grid.cols-3 { grid-template-columns: repeat(3,1fr); }
+    .approach-track-copy { font-size: .9rem; color: rgba(255,255,255,.72); line-height: 1.75; margin-top: 1.5rem; max-width: 680px; }
+    .approach-callout { border-left: 3px solid var(--rust); padding-left: 1rem; }
+    @media (max-width: 768px) {
+      .approach-grid.cols-3 { grid-template-columns: 1fr; gap: 1.5rem; }
+      .approach-grid.cols-3 .approach-step::after { display: none; }
+    }
+
+    /* Pricing */
+    .pricing-bg { background: var(--cream); }
+    .price-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; margin-top: 1rem; }
+    .price-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 1.75rem 1.5rem; text-align: center; position: relative; overflow: hidden;
+    }
+    .price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); }
+    .price-card.accent { border-color: var(--rust); }
+    .price-card.accent::before { background: var(--rust); }
+    .price-name { font-size: .9rem; font-weight: 800; color: var(--dark); margin-bottom: .6rem; }
+    .price-amount { font-size: 1.4rem; font-weight: 900; color: var(--teal); line-height: 1.15; }
+    .price-amount.free { color: var(--rust); }
+    .price-note { font-size: .78rem; color: var(--muted); margin-top: .7rem; line-height: 1.5; }
+    .price-banner { margin-top: 2.25rem; text-align: center; font-size: 1.05rem; font-weight: 800; color: var(--dark); }
+    .price-banner span { color: var(--rust); }
+    @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .price-grid { grid-template-columns: 1fr; } }
+
+    /* ── review fixes: nav + footer overflow, mobile CTA, wrap-safety ── */
+    .nav-links { gap: 1.5rem; }              /* comfort in the 901–1100 band */
+    .footer-links { flex-wrap: wrap; row-gap: .6rem; }   /* mobile footer nav can't clip */
+    .nav-cta .cta-short { display: none; }   /* short label only on small screens */
+    @media (max-width: 900px) { .nav-links { display: none; } } /* no nav-menu clip 601–900 */
+    @media (max-width: 600px) {
+      .nav-logo-text span { display: none; }               /* reclaim width for the CTA */
+      .nav-logo-text { font-size: .82rem; }
+      .nav-logo { gap: .55rem; }
+      .nav-cta { padding: .5rem 1rem; font-size: .75rem; }
+      .nav-cta .cta-full  { display: none; }
+      .nav-cta .cta-short { display: inline; }
+    }
   </style>
 </head>
 <body>
@@ -415,7 +509,7 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo">
+  <a href="#home" class="nav-logo">
     <img src="img/logo.png" alt="Inland NW AI" style="width:42px;height:42px;object-fit:contain;">
     <div class="nav-logo-text">
       Inland NW AI
@@ -423,12 +517,14 @@
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="#matrix">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="#contact" class="nav-cta">Book a Discovery Call</a>
+    <a data-schedule href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="nav-cta"><span class="cta-full">Schedule Free Consultation</span><span class="cta-short">Free Consult</span></a>
   </div>
 </nav>
 
@@ -443,22 +539,22 @@
       <div class="hero-brand-logo">
         <img src="img/logo.png" alt="Inland NW AI" style="width:72px;height:72px;object-fit:contain;">
       </div>
-      <div class="hero-brand-name">Inland NW <em>AI</em></div>
-      <div class="hero-slogan">Your local guide to AI. Practical, friendly, and built for Inland Northwest businesses.</div>
+      <h1 class="hero-brand-name">Build AI capability<br>with <em>confidence</em></h1>
+      <div class="hero-slogan">Your Inland Northwest AI partner.</div>
     </div>
 
     <div class="hero-divider"></div>
 
     <p>
-      AI doesn't have to be complicated or intimidating. We come to your business, learn what you actually do,
-      and help your team start using AI in ways that save time and make work easier.
+      Whether you're a solo operator, a growing business, or an enterprise, we help you
+      automate workflows, analyze your data, and understand AI &mdash; practically, and without the jargon.
     </p>
     <div class="hero-actions">
-      <a href="#free-consult" class="btn-primary">
-        Let's Talk. It's Free.
+      <a data-schedule href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="btn-primary">
+        Schedule Free Consultation
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-      <a href="#services" class="btn-secondary">See How We Help</a>
+      <a href="#who" class="btn-secondary">See How We Help</a>
     </div>
     <div class="hero-values">
       <div class="hero-value">In-Person</div>
@@ -474,122 +570,207 @@
   CuriosITy Driven <span>·</span> People Centered <span>·</span> Thoughtful AI <span>·</span> Growing Together
 </div>
 
-<!-- ── FREE CONSULTATION CTA ── -->
+<!-- ── ARCHETYPE CARDS ── -->
+<section class="services-bg" id="who">
+  <div class="section-inner">
+    <div class="section-eyebrow">Who We Help</div>
+    <h2 class="section-title">Find your starting point.</h2>
+    <p class="section-sub">Wherever you are, there's a way in. Pick the description that sounds most like you &mdash; the first conversation is always free.</p>
+
+    <div class="services-grid archetypes">
+
+      <!-- Archetype 1: Small Business Operator -->
+      <div class="service-card">
+        <div class="service-tag" role="heading" aria-level="3">Small Business</div>
+        <div class="card-role">Solo operators &amp; small teams</div>
+        <p class="card-hook">Are there tasks you don't like doing or can't get to &mdash; like building or updating a website, managing receipts, or scheduling projects &mdash; or are you sick of paying for subscriptions you barely use?</p>
+        <div class="card-actions">
+          <a data-schedule href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="btn-primary btn-block">Schedule Free Consultation</a>
+          <a href="#matrix" class="btn-secondary btn-block">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Archetype 2: Growing Company -->
+      <div class="service-card">
+        <div class="service-tag" role="heading" aria-level="3">Growing Company</div>
+        <div class="card-role">Scaling teams &amp; operations</div>
+        <p class="card-hook">Are you looking to optimize your workflows with technology, get more out of your data, or figure out where AI actually fits in your business?</p>
+        <div class="card-actions">
+          <a data-schedule href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="btn-primary btn-block">Schedule Free Consultation</a>
+          <a href="#matrix" class="btn-secondary btn-block">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Archetype 3: Enterprise Organization -->
+      <div class="service-card accent">
+        <div class="service-tag" role="heading" aria-level="3">Enterprise</div>
+        <div class="card-role">Established orgs &amp; leadership</div>
+        <p class="card-hook">Do you have the tools and the team in place but struggle to get real adoption &mdash; or want to build an AI-ready culture that actually sticks?</p>
+        <div class="card-actions">
+          <a data-schedule href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="btn-primary btn-block">Schedule Free Consultation</a>
+          <a href="#matrix" class="btn-secondary btn-block">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES MATRIX ── -->
+<section class="about-bg" id="matrix">
+  <div class="section-inner">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-title">Three ways to work, across three domains.</h2>
+    <p class="section-sub">No matter your size, we work in three modes &mdash; Build, Consult, and Train &mdash; across the three areas where AI creates the most value.</p>
+
+    <div class="matrix">
+      <div class="matrix-corner"></div>
+      <div class="matrix-colhead">Build</div>
+      <div class="matrix-colhead">Consult</div>
+      <div class="matrix-colhead">Train</div>
+
+      <!-- Automation row -->
+      <div class="matrix-rowhead">Automation</div>
+      <div class="matrix-cell"><span class="m-mode">Build</span>Custom apps and workflow automation &mdash; receipt tracking, scheduling, and the project tools you keep wishing you had.</div>
+      <div class="matrix-cell"><span class="m-mode">Consult</span>We map how your work actually flows, run an efficiency audit, and hand you a practical automation roadmap.</div>
+      <div class="matrix-cell"><span class="m-mode">Train</span>Hands-on team workshops on streamlining the busywork out of everyone's day.</div>
+
+      <!-- Analytics row -->
+      <div class="matrix-rowhead">Analytics</div>
+      <div class="matrix-cell"><span class="m-mode">Build</span>Custom dashboards, data pipelines, and reporting tools that turn scattered numbers into something you'll actually use.</div>
+      <div class="matrix-cell"><span class="m-mode">Consult</span>Data strategy and honest insight discovery &mdash; including how you really stack up against the competition.</div>
+      <div class="matrix-cell"><span class="m-mode">Train</span>Practical data-literacy training so your team can read, trust, and act on its own numbers.</div>
+
+      <!-- AI row -->
+      <div class="matrix-rowhead">AI</div>
+      <div class="matrix-cell"><span class="m-mode">Build</span>AI-powered applications and intelligent automations built around what your business really does.</div>
+      <div class="matrix-cell"><span class="m-mode">Consult</span>AI strategy and honest use-case identification &mdash; where AI helps, and where it's not worth it yet.</div>
+      <div class="matrix-cell"><span class="m-mode">Train</span>AI fundamentals and adoption frameworks, with hands-on practice your team can use the next day.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="approach-bg" id="how">
+  <div class="section-inner">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">A simple process, tailored to your size.</h2>
+    <p class="section-sub">No long contracts, no confusing proposals. We start by listening, figure out what makes sense for your business, and go from there &mdash; together.</p>
+
+    <!-- Track 1: Small Business Operators -->
+    <div class="approach-track">
+      <div class="approach-track-label">For Small Business Operators</div>
+      <div class="approach-grid cols-3">
+        <div class="approach-step">
+          <div class="approach-num">1</div>
+          <h3>Free Consultation</h3>
+          <p>A free one-hour session to understand your business and spot where AI can save you time.</p>
+        </div>
+        <div class="approach-step">
+          <div class="approach-num">2</div>
+          <h3>Roadmapping &amp; Setup</h3>
+          <p>A simple, prioritized plan &mdash; and we get the essentials set up and working for you.</p>
+        </div>
+        <div class="approach-step">
+          <div class="approach-num">3</div>
+          <h3>Build Custom Tools</h3>
+          <p>Websites, apps, and automation workflows built to fit exactly how you work.</p>
+        </div>
+      </div>
+      <p class="approach-track-copy">We build simple, specific solutions &mdash; websites, apps, and automation workflows. No subscriptions you don't need.</p>
+    </div>
+
+    <!-- Track 2: Growing Companies -->
+    <div class="approach-track">
+      <div class="approach-track-label">For Growing Companies</div>
+      <div class="approach-grid cols-3">
+        <div class="approach-step">
+          <div class="approach-num">1</div>
+          <h3>Free Consultation</h3>
+          <p>We listen to what you're working on, your goals, and where you want to grow.</p>
+        </div>
+        <div class="approach-step">
+          <div class="approach-num">2</div>
+          <h3>Strategy &amp; Integration</h3>
+          <p>A data and workflow strategy that plugs into the systems you already run.</p>
+        </div>
+        <div class="approach-step">
+          <div class="approach-num">3</div>
+          <h3>Ongoing Optimization</h3>
+          <p>We keep refining as you scale &mdash; analytics, automation, and where AI fits next.</p>
+        </div>
+      </div>
+      <p class="approach-track-copy">We help you optimize workflows, analyze your data, and explore where AI fits &mdash; often integrating with the systems you already run.</p>
+    </div>
+
+    <!-- Track 3: Enterprises -->
+    <div class="approach-track">
+      <div class="approach-track-label">For Enterprises</div>
+      <div class="approach-grid cols-3">
+        <div class="approach-step">
+          <div class="approach-num">1</div>
+          <h3>Free Consultation</h3>
+          <p>We meet your leadership and teams to understand goals, tools, and adoption gaps.</p>
+        </div>
+        <div class="approach-step">
+          <div class="approach-num">2</div>
+          <h3>Solutions Architecture</h3>
+          <p>We architect the full solution and source any specialized talent it needs.</p>
+        </div>
+        <div class="approach-step">
+          <div class="approach-num">3</div>
+          <h3>Managed Implementation</h3>
+          <p>We manage delivery end to end &mdash; owning it from scope to completion.</p>
+        </div>
+      </div>
+      <p class="approach-track-copy approach-callout">We act as your technology partner and solutions architect &mdash; architecting complex solutions, sourcing specialized talent, and managing end-to-end delivery, including subcontractor coordination, so your team owns the outcome without owning the overhead.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="pricing-bg" id="pricing">
+  <div class="section-inner">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-title">Straightforward, and sized to you.</h2>
+    <p class="section-sub">Every engagement starts with a real conversation &mdash; free, no pitch, no obligation. From there, we quote to fit your scope.</p>
+
+    <div class="price-grid">
+      <div class="price-card accent">
+        <div class="price-name">Free Consultation</div>
+        <div class="price-amount free" data-price="priceConsult">$0</div>
+        <div class="price-note">Let's talk about your needs. Always free.</div>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Roadmapping &amp; Off-the-Shelf</div>
+        <div class="price-amount" data-price="priceStart">Starting at $199</div>
+        <div class="price-note">Setup, roadmaps, and ready-to-go tools to get moving fast.</div>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Custom Builds</div>
+        <div class="price-amount" data-price="priceCustom">Custom quote</div>
+        <div class="price-note">Apps, dashboards, and automations, quoted to your scope.</div>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Enterprise Solutions</div>
+        <div class="price-amount" data-price="priceEnterprise">Custom quote</div>
+        <div class="price-note">Architecture, talent sourcing, and managed delivery.</div>
+      </div>
+    </div>
+
+    <div class="price-banner"><span>No job's too small.</span> Free consultation included, every time.</div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
 <section id="free-consult" style="background:var(--rust);padding:4.5rem 2rem;text-align:center;">
   <div style="max-width:640px;margin:0 auto;">
     <div style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.9rem;">Free · No Commitment</div>
-    <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:white;line-height:1.2;margin-bottom:1.1rem;">Set up your free one-hour consultation today.</h2>
-    <p style="font-size:1rem;color:rgba(255,255,255,.82);line-height:1.8;margin-bottom:2.25rem;">We'll audit your systems and operations together to find where AI can help your bottom line, no pitch, no obligation. Give us a call or schedule a time below.</p>
+    <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;color:white;line-height:1.2;margin-bottom:1.1rem;">Ready to explore what's possible?</h2>
+    <p style="font-size:1rem;color:rgba(255,255,255,.82);line-height:1.8;margin-bottom:2.25rem;">Schedule your free consultation below. We'll look at your systems and operations together to find where AI can help your bottom line &mdash; no pitch, no obligation. Or just give us a call.</p>
     <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
       <a href="tel:+15097950112" class="btn-white" style="color:var(--rust);font-weight:800;">📞 Call Us</a>
-      <a href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="btn-white" style="color:var(--rust);font-weight:800;">📅 Schedule a Time</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── SERVICES ── -->
-<section class="services-bg" id="services">
-  <div class="section-inner">
-    <div class="section-eyebrow">How We Help</div>
-    <h2 class="section-title">Three ways we can help.</h2>
-    <p class="section-sub">After your free consultation, most clients move into one or more of these, at whatever pace makes sense for their business.</p>
-
-    <div class="services-grid">
-
-      <!-- Tier 2: Roadmap & Strategy -->
-      <div class="service-card">
-        <div class="service-icon">🗺️</div>
-        <div class="service-tag">Strategize</div>
-        <h3>AI Roadmap &amp; Strategic Plan</h3>
-        <p>A clear, actionable plan for how your organization adopts AI, prioritized for your budget, your team, and your goals. Includes evaluation of new technologies worth considering.</p>
-        <div class="card-list-label">What You Get</div>
-        <ul class="service-list">
-          <li>Full AI opportunity assessment</li>
-          <li>Workflow &amp; process analysis</li>
-          <li>Phased adoption roadmap with prioritized next steps</li>
-          <li>Technology evaluation, build vs. buy guidance</li>
-          <li>Vendor &amp; tool recommendations</li>
-          <li>Engagement levels tailored to your pace and capacity</li>
-        </ul>
-      </div>
-
-      <!-- Tier 3: Training -->
-      <div class="service-card" id="workshops">
-        <div class="service-icon">📖</div>
-        <div class="service-tag">Train</div>
-        <h3>AI Training for Your Team</h3>
-        <p>Hands-on workshops at your location, built around what your team actually does. Real tools, practical skills, no jargon. Sessions start at $299.</p>
-        <div class="card-list-label">Available Modules</div>
-        <ul class="service-list">
-          <li>What the heck is AI?</li>
-          <li>Growing a Curiosity Toward AI</li>
-          <li>AI for Analysis &amp; Reporting</li>
-          <li>AI for Automation</li>
-          <li>AI for Operations &amp; Communication</li>
-          <li>AI for Customer Experience</li>
-          <li>AI for Content &amp; Marketing</li>
-        </ul>
-      </div>
-
-      <!-- Tier 4: Build -->
-      <div class="service-card accent">
-        <div class="service-icon">⚡</div>
-        <div class="service-tag">Build</div>
-        <h3>Custom AI Tools &amp; Solutions</h3>
-        <p>We build what your business actually needs, from simple automations to full interactive tools. Designed for small and mid-sized businesses that want real capability without enterprise price tags.</p>
-        <div class="card-list-label">What We Can Build</div>
-        <ul class="service-list">
-          <li>Dashboards &amp; reporting tools</li>
-          <li>Interactive web tools &amp; calculators</li>
-          <li>Predictive models &amp; data pipelines</li>
-          <li>Workflow &amp; process automation</li>
-          <li>Custom AI assistants &amp; chatbots</li>
-          <li>CRM, operations &amp; marketing integrations</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Corporate Strategy Banner -->
-    <div style="margin-top:1.25rem;background:var(--rust);border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
-      <div>
-        <div style="font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.5rem;">Corporate AI Strategy</div>
-        <h3 style="color:white;font-size:1.15rem;font-weight:800;margin-bottom:.5rem;">Have an AI strategy but not sure how to act on it?</h3>
-        <p style="color:rgba(255,255,255,.75);font-size:.875rem;line-height:1.7;max-width:580px;">Many organizations know they need to embrace AI but struggle to move from plan to practice. We work alongside your leadership and teams to bridge that gap, translating strategy into real skills, real workflows, and real results your people can feel.</p>
-      </div>
-      <a href="#contact" class="btn-white" style="flex-shrink:0;color:var(--rust);">Let's Talk</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── APPROACH ── -->
-<section class="approach-bg" id="approach">
-  <div class="section-inner">
-    <div class="section-eyebrow">Our Approach</div>
-    <h2 class="section-title">How it actually works</h2>
-    <p class="section-sub">No long contracts, no confusing proposals. We start by listening, figure out what makes sense for your business, and go from there, together.</p>
-
-    <div class="approach-grid">
-      <div class="approach-step">
-        <div class="approach-num">1</div>
-        <h3>Consult &amp; Audit</h3>
-        <p>A free one-hour session to understand your business, review your tools, and explore where AI creates real value, across analytics, automation, operations, strategy, and marketing.</p>
-      </div>
-      <div class="approach-step">
-        <div class="approach-num">2</div>
-        <h3>Strategize</h3>
-        <p>We develop a clear AI roadmap tailored to your goals, prioritized, phased, and practical. Includes evaluating which technologies are worth adopting and at what pace.</p>
-      </div>
-      <div class="approach-step">
-        <div class="approach-num">3</div>
-        <h3>Train</h3>
-        <p>Hands-on workshops built around what your team actually does. Real tools, real practice, your people leave knowing how to use AI the next day.</p>
-      </div>
-      <div class="approach-step">
-        <div class="approach-num">4</div>
-        <h3>Build</h3>
-        <p>We build what you need, dashboards, automation, models, web tools, or custom AI assistants, designed for small and mid-sized businesses that want real capability without the enterprise cost.</p>
-      </div>
+      <a data-schedule href="https://calendar.app.google/bfwvT6jSwvPMqio67" target="_blank" rel="noopener" class="btn-white" style="color:var(--rust);font-weight:800;">📅 Schedule Free Consultation</a>
     </div>
   </div>
 </section>
@@ -614,10 +795,10 @@
             I started Inland NW AI because I genuinely love figuring out problems, and right now, AI is one of the most interesting tools available to solve them. My approach isn't to show up with a pre-packaged solution. It's to sit down, understand what you're dealing with, and explore what AI could actually do to help.
           </p>
           <p>
-            My background sits at the intersection of two things that don't always go together: the behavioral side of how people learn and adopt technology, and the applied technical skills to actually implement and build tools. That combination matters. Most businesses don't fail at AI because of the technology, they fail because the people side isn't handled well. I know both sides of that equation.
+            My background sits at the intersection of two things that don't always go together: the behavioral side of how people learn and adopt technology, and the applied technical skills to actually implement and build tools. That combination matters. Most organizations don't fail at AI because of the technology, they fail because the people side isn't handled well. I know both sides of that equation.
           </p>
           <p>
-            I work with businesses, nonprofits, and teams across Spokane, Coeur d'Alene, and the Inland Northwest. Whether you don't know where to start or you're further along in your AI journey and want to maximize adoption and impact, I'm ready to help you explore and solve what's in front of you.
+            I work with solo operators, growing companies, nonprofits, and established organizations across Spokane, Coeur d'Alene, and the Inland Northwest. Whether you're a one-person shop that needs a website built, a team optimizing your operations, or a larger organization working to get real adoption across your people, I'm ready to help you explore and solve what's in front of you.
           </p>
         </div>
         <div class="about-stats">
@@ -691,7 +872,7 @@
       </div>
 
       <div class="contact-alts">
-        <a href="https://www.inlandnw.ai" class="contact-alt" target="_blank">
+        <a href="https://www.inlandnw.ai" class="contact-alt" target="_blank" rel="noopener noreferrer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           inlandnw.ai
         </a>
@@ -714,7 +895,9 @@
       </div>
     </div>
     <div class="footer-links">
-      <a href="#services">Services</a>
+      <a href="#matrix">Services</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -723,6 +906,27 @@
     &copy; 2026 Inland NW AI &nbsp;·&nbsp; Spokane &amp; Coeur d'Alene &nbsp;·&nbsp; Inland Northwest
   </div>
 </footer>
+
+<!-- ══ SITE CONFIG — single edit point for scheduling link + prices ══
+     Swap the scheduling URL or firm up prices here; the values below are
+     also hard-coded as fallbacks in the markup, so the page works with JS off. -->
+<script>
+  const SITE = {
+    scheduleUrl:     'https://calendar.app.google/bfwvT6jSwvPMqio67', // ← real booking link; swap here
+    phone:           '+15097950112',
+    priceConsult:    '$0',
+    priceStart:      'Starting at $199',
+    priceCustom:     'Custom quote',
+    priceEnterprise: 'Custom quote'
+  };
+  document.querySelectorAll('a[data-schedule]').forEach(function (a) {
+    a.href = SITE.scheduleUrl; a.target = '_blank'; a.rel = 'noopener';
+  });
+  document.querySelectorAll('[data-price]').forEach(function (el) {
+    var key = el.dataset.price;
+    if (SITE[key]) el.textContent = SITE[key];
+  });
+</script>
 
 </body>
 </html>
